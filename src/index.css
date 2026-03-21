@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cinzel: "Cinzel Decorative", serif;
+  --font-body: "EB Garamond", serif;
+  
+  --color-parchment: #d8c3a5;
+  --color-parchment-dark: #bfa886;
+  --color-parchment-light: #e8d8c0;
+  --color-ink: #3e2723;
+  --color-ink-light: #5d4037;
+  --color-dirt: #140c08;
+  --color-dirt-light: #2a1a10;
+  --color-wood: #3e2723;
+  --color-wood-dark: #261612;
+  --color-gold: #c59b4c;
+  --color-gold-light: #e2c07d;
+  --color-gold-dark: #9a7838;
+}
+
+@layer utilities {
+  .bg-parchment-texture {
+    background-color: var(--color-parchment);
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    box-shadow: inset 0 0 60px rgba(62, 39, 35, 0.15), inset 0 0 20px rgba(62, 39, 35, 0.2);
+  }
+  
+  .bg-dirt-texture {
+    background-color: var(--color-dirt);
+    background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  }
+
+  .bg-wood-texture {
+    background-color: var(--color-wood);
+    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+  }
+
+  .text-shadow-gold {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(197, 155, 76, 0.3);
+  }
+
+  .text-shadow-dark {
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-engraved {
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2), 0 -1px 1px rgba(0, 0, 0, 0.8);
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(197, 155, 76, 0.8), 0 0 20px rgba(197, 155, 76, 0.4);
+  }
+
+  .container-1200 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 1200px) {
+    .container-1200 {
+      padding: 0;
+    }
+  }
+
+  .btn-wood {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    background-color: var(--color-wood);
+    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    border: 2px solid var(--color-dirt-light);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(0,0,0,0.5);
+    color: var(--color-parchment);
+    font-family: var(--font-cinzel);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    filter: url(#torn-edge-small);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2), 0 -1px 1px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+  }
+
+  .btn-wood::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px dashed rgba(216, 195, 165, 0.3);
+    pointer-events: none;
+  }
+
+  .btn-wood:hover {
+    filter: url(#torn-edge-small) brightness(1.1);
+  }
+
+  .btn-wood .arrow {
+    color: var(--color-gold-dark);
+    font-size: 20px;
+    font-weight: 300;
+    margin-left: 12px;
+  }
+
+  .btn-parchment {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    background-color: var(--color-parchment);
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    border: 2px solid var(--color-ink-light);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(62, 39, 35, 0.2);
+    color: var(--color-ink);
+    font-family: var(--font-cinzel);
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    filter: url(#torn-edge-small);
+    cursor: pointer;
+  }
+
+  .btn-parchment::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px dashed rgba(62, 39, 35, 0.3);
+    pointer-events: none;
+  }
+
+  .btn-parchment:hover {
+    filter: url(#torn-edge-small) brightness(1.05);
+  }
+
+  .btn-parchment .arrow {
+    color: var(--color-ink);
+    font-size: 20px;
+    font-weight: 300;
+    margin-left: 12px;
+  }
+
+  .banner-parchment {
+    position: relative;
+    width: 100%;
+    background-color: var(--color-parchment);
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    padding: 80px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 40px rgba(62, 39, 35, 0.2);
+    filter: url(#torn-edge);
+    z-index: 20;
+    margin-top: -30px;
+    color: var(--color-ink);
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .banner-parchment {
+      padding: 120px 0;
+    }
+  }
+
+  .card-parchment {
+    position: relative;
+    background-color: var(--color-parchment);
+    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(62, 39, 35, 0.1);
+    filter: url(#torn-edge);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--color-ink);
+  }
+
+  .card-image-frame {
+    position: relative;
+    background-color: var(--color-wood);
+    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    padding: 6px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+    filter: url(#torn-edge-small);
+    margin-bottom: 20px;
+    height: 240px;
+  }
+
+  .card-image-frame::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px dashed rgba(216, 195, 165, 0.2);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .card-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.5) contrast(1.2) brightness(0.9);
+    position: relative;
+    z-index: 10;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dirt);
+  color: var(--color-parchment);
+  font-family: var(--font-body);
+}
