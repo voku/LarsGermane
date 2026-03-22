@@ -171,7 +171,6 @@ const Hero = () => (
       <RunicCompass className="w-32 h-32 drop-shadow-2xl" />
     </div>
 
-    {/* No nav bar offset needed - hero starts at top of page */}
     <div className="relative z-10 container-1200 flex flex-col items-start mt-16 md:mt-24">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
