@@ -26,18 +26,18 @@
 
   .bg-parchment-texture {
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: url("/textures/parchment.png");
     box-shadow: inset 0 0 60px rgba(62, 39, 35, 0.15), inset 0 0 20px rgba(62, 39, 35, 0.2);
   }
   
   .bg-dirt-texture {
     background-color: var(--color-dirt);
-    background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+    background-image: url("/textures/dark-matter.png");
   }
 
   .bg-wood-texture {
     background-color: var(--color-wood);
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    background-image: url("/textures/wood-pattern.png");
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
   }
 
@@ -78,7 +78,7 @@
     justify-content: center;
     padding: 12px 30px;
     background-color: var(--color-wood);
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    background-image: url("/textures/wood-pattern.png");
     border: 2px solid var(--color-dirt-light);
     box-shadow: 0 5px 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(0,0,0,0.5);
     color: var(--color-parchment);
@@ -122,7 +122,7 @@
     justify-content: center;
     padding: 12px 30px;
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: url("/textures/parchment.png");
     border: 2px solid var(--color-ink-light);
     box-shadow: 0 5px 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(62, 39, 35, 0.2);
     color: var(--color-ink);
@@ -162,7 +162,7 @@
     position: relative;
     width: 100%;
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: url("/textures/parchment.png");
     padding: 80px 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 40px rgba(62, 39, 35, 0.2);
     filter: url(#torn-edge);
@@ -181,7 +181,7 @@
   .card-parchment {
     position: relative;
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: url("/textures/parchment.png");
     padding: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(62, 39, 35, 0.1);
     filter: url(#torn-edge);
@@ -194,7 +194,7 @@
   .card-image-frame {
     position: relative;
     background-color: var(--color-wood);
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    background-image: url("/textures/wood-pattern.png");
     padding: 6px;
     box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
     filter: url(#torn-edge-small);
@@ -214,7 +214,8 @@
     pointer-events: none;
   }
 
-  .card-image-frame img {
+  .card-image-frame img,
+  .card-image-frame > div {
     width: 100%;
     height: 100%;
     object-fit: cover;
