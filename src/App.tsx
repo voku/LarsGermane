@@ -155,17 +155,12 @@ const NavBar = () => {
 
 const Hero = () => (
   <section className="relative h-[600px] md:h-[800px] flex flex-col justify-center overflow-hidden">
-    {/* Background - Viking village atmosphere */}
+    {/* Background Image - Viking village scene */}
     <div className="absolute inset-0 z-0">
-      <div
-        className="w-full h-full"
-        style={{
-          background: [
-            'radial-gradient(ellipse at 35% 65%, rgba(200,120,30,0.5) 0%, rgba(120,70,20,0.3) 25%, transparent 55%)',
-            'radial-gradient(ellipse at 55% 75%, rgba(180,100,25,0.4) 0%, transparent 45%)',
-            'linear-gradient(135deg, #0a0503 0%, #1a0e06 15%, #2d180c 30%, #4a2810 50%, #3a1e0a 65%, #1a0e06 80%, #0a0503 100%)',
-          ].join(', '),
-        }}
+      <img 
+        src="/images/hero-bg.jpg" 
+        alt="Germanic village at sunset" 
+        className="w-full h-full object-cover object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-dirt/90 via-dirt/50 to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/90"></div>
@@ -261,17 +256,17 @@ const Projects = () => {
     {
       title: "KREATIV & STRATEGISCH",
       desc: "Modernes Design, kluge Lösungen, zielgerichtete Planung.",
-      gradient: "radial-gradient(ellipse at 30% 40%, rgba(200,130,50,0.6) 0%, transparent 60%), linear-gradient(135deg, #2a1508 0%, #5a3818 40%, #8a5828 70%, #3a2010 100%)"
+      image: "/images/project-1.jpg"
     },
     {
       title: "FLEXIBEL & ZUVERLÄSSIG",
       desc: "Breites Know-how, vielfältige Fähigkeiten, stetiges Dazulernen.",
-      gradient: "radial-gradient(ellipse at 50% 50%, rgba(180,120,50,0.5) 0%, transparent 60%), linear-gradient(135deg, #1a1008 0%, #3a2818 25%, #5a4028 50%, #7a5838 75%, #4a3018 100%)"
+      image: "/images/project-2.jpg"
     },
     {
       title: "ECHT & BODENSTÄNDIG",
       desc: "Persönlicher Einsatz, direkter Kontakt, klare Kommunikation.",
-      gradient: "radial-gradient(ellipse at 60% 60%, rgba(190,110,40,0.5) 0%, transparent 55%), linear-gradient(135deg, #2a1a10 0%, #4a3020 30%, #6a4830 55%, #4a3020 80%, #2a1a10 100%)"
+      image: "/images/project-3.jpg"
     }
   ];
 
@@ -303,7 +298,7 @@ const Projects = () => {
               <Rivet className="absolute bottom-3 right-3 w-4 h-4 z-20 opacity-80" />
               
               <div className="card-image-frame">
-                <div style={{ width: '100%', height: '100%', background: p.gradient }} />
+                <img src={p.image} alt={p.title} />
               </div>
               
               <h3 className="font-cinzel font-bold text-2xl text-ink mb-4 text-center">{p.title}</h3>
@@ -451,11 +446,10 @@ const Skills = () => {
 const Contact = () => (
   <section id="contact" className="py-24 md:py-32 relative z-10 border-t border-parchment/10 overflow-hidden">
     <div className="absolute inset-0 z-0">
-      <div 
-        className="w-full h-full opacity-40"
-        style={{
-          background: 'radial-gradient(ellipse at 50% 30%, rgba(40,25,12,0.8) 0%, transparent 60%), linear-gradient(to bottom, #1a0e08 0%, #2a1810 40%, #1a0e08 100%)',
-        }}
+      <img 
+        src="/images/contact-bg.jpg" 
+        alt="Dark forest landscape" 
+        className="w-full h-full object-cover object-center opacity-40"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-dirt via-dirt/80 to-dirt/40"></div>
     </div>
