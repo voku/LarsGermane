@@ -3,6 +3,7 @@
 @theme {
   --font-cinzel: "Cinzel Decorative", serif;
   --font-body: "EB Garamond", serif;
+  --font-runic: "Noto Sans Runic", "Segoe UI Historic", "Segoe UI Symbol", serif;
   
   --color-parchment: #d8c3a5;
   --color-parchment-dark: #bfa886;
@@ -19,6 +20,10 @@
 }
 
 @layer utilities {
+  .font-runic {
+    font-family: var(--font-runic);
+  }
+
   .bg-parchment-texture {
     background-color: var(--color-parchment);
     background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
