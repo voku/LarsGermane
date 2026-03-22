@@ -219,7 +219,7 @@ const About = () => (
     <div className="banner-parchment">
       <div className="container-1200">
         {/* Decorative Runes Top Left */}
-        <div className="hidden md:block absolute -top-6 left-4 font-cinzel text-ink/40 text-2xl tracking-[0.4em] font-bold">
+        <div className="hidden md:block absolute -top-6 left-4 font-runic text-ink/60 text-2xl tracking-[0.4em] font-bold">
           ᛉ ᛟ ᛈ ᚱ ᛗ ᚷ
         </div>
 
@@ -312,7 +312,7 @@ const Projects = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12 font-cinzel text-parchment/40 text-lg md:text-2xl tracking-[0.3em] md:tracking-[0.6em] text-shadow-dark font-bold px-4 break-words">
+        <div className="text-center mt-12 font-runic text-parchment/60 text-lg md:text-2xl tracking-[0.3em] md:tracking-[0.6em] text-shadow-dark font-bold px-4 break-words">
           XXV ᛏᛒᚱᛗᚱᚾ ᛒᚠᚱᚷᛏ
         </div>
       </div>
@@ -321,8 +321,8 @@ const Projects = () => {
 };
 
 const RuneDividerSection = () => (
-  <div className="bg-dirt-texture pb-16 pt-8 flex justify-center items-center overflow-hidden">
-    <div className="font-cinzel text-parchment/40 text-lg md:text-4xl tracking-[0.3em] md:tracking-[0.6em] text-shadow-dark font-bold text-center px-4 break-words">
+  <div className="bg-dirt-texture py-6 flex justify-center items-center overflow-hidden">
+    <div className="font-runic text-parchment/60 text-lg md:text-3xl tracking-[0.3em] md:tracking-[0.5em] text-shadow-dark font-bold text-center px-4 break-words">
       ᛉ ᛟ ᛈ ᚱ ᛗ ᚷ ᚾ ᛒ ᚠ ᚱ ᚷ ᛏ
     </div>
   </div>
@@ -379,19 +379,23 @@ const Skills = () => {
             <CornerOrnament className="absolute top-4 left-4 w-6 h-6 text-ink/30 z-20" />
             <CornerOrnament className="absolute bottom-4 right-4 w-6 h-6 text-ink/30 z-20 rotate-180" />
             <div className="relative z-10 p-6">
-              <div className="flex items-center justify-center space-x-1 md:space-x-3 border-b border-ink/20 pb-4 mb-4">
+              <div className="flex items-center justify-center space-x-1 md:space-x-2 border-b border-ink/20 pb-4 mb-4 flex-wrap gap-y-2">
                 <div className="relative">
                   <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
-                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-xl block">HTML</span>
+                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">HTML</span>
                 </div>
-                <SquiggleIcon className="w-6 h-6 md:w-8 md:h-8 text-ink opacity-70" />
+                <SquiggleIcon className="w-5 h-5 md:w-7 md:h-7 text-ink opacity-70" />
                 <div className="relative">
                   <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
-                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-xl block">CSS</span>
+                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">CSS</span>
                 </div>
                 <div className="relative">
                   <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
-                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-xl block">JS</span>
+                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">SCSS</span>
+                </div>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
+                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">JS</span>
                 </div>
               </div>
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
@@ -401,7 +405,7 @@ const Skills = () => {
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>PHP & Datenbanken</span>
+                  <span>PHP- und Programmierung</span>
                 </li>
               </ul>
             </div>
@@ -536,6 +540,7 @@ export default function App() {
       <Hero />
       <About />
       <Projects />
+      <RuneDividerSection />
       <Skills />
       <Testimonial />
       <Contact />
