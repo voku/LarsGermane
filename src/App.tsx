@@ -155,13 +155,17 @@ const NavBar = () => {
 
 const Hero = () => (
   <section className="relative h-[600px] md:h-[800px] flex flex-col justify-center overflow-hidden">
-    {/* Background Image - Restored to the original one */}
+    {/* Background - Viking village atmosphere */}
     <div className="absolute inset-0 z-0">
-      <img 
-        src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?q=80&w=2000&auto=format&fit=crop" 
-        alt="Germanic village at sunset" 
-        className="w-full h-full object-cover object-center"
-        referrerPolicy="no-referrer"
+      <div
+        className="w-full h-full"
+        style={{
+          background: [
+            'radial-gradient(ellipse at 35% 65%, rgba(200,120,30,0.5) 0%, rgba(120,70,20,0.3) 25%, transparent 55%)',
+            'radial-gradient(ellipse at 55% 75%, rgba(180,100,25,0.4) 0%, transparent 45%)',
+            'linear-gradient(135deg, #0a0503 0%, #1a0e06 15%, #2d180c 30%, #4a2810 50%, #3a1e0a 65%, #1a0e06 80%, #0a0503 100%)',
+          ].join(', '),
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-dirt/90 via-dirt/50 to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/90"></div>
@@ -172,7 +176,7 @@ const Hero = () => (
       <RunicCompass className="w-32 h-32 drop-shadow-2xl" />
     </div>
 
-    <div className="relative z-10 container-1200 flex flex-col items-start mt-32 md:mt-48">
+    <div className="relative z-10 container-1200 flex flex-col items-start mt-16 md:mt-24">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
@@ -256,17 +260,17 @@ const Projects = () => {
     {
       title: "KREATIV & STRATEGISCH",
       desc: "Modernes Design, kluge Lösungen, zielgerichtete Planung.",
-      image: "https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=800&auto=format&fit=crop"
+      gradient: "radial-gradient(ellipse at 30% 40%, rgba(200,130,50,0.6) 0%, transparent 60%), linear-gradient(135deg, #2a1508 0%, #5a3818 40%, #8a5828 70%, #3a2010 100%)"
     },
     {
       title: "FLEXIBEL & ZUVERLÄSSIG",
       desc: "Breites Know-how, vielfältige Fähigkeiten, stetiges Dazulernen.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop"
+      gradient: "radial-gradient(ellipse at 50% 50%, rgba(180,120,50,0.5) 0%, transparent 60%), linear-gradient(135deg, #1a1008 0%, #3a2818 25%, #5a4028 50%, #7a5838 75%, #4a3018 100%)"
     },
     {
       title: "ECHT & BODENSTÄNDIG",
       desc: "Persönlicher Einsatz, direkter Kontakt, klare Kommunikation.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+      gradient: "radial-gradient(ellipse at 60% 60%, rgba(190,110,40,0.5) 0%, transparent 55%), linear-gradient(135deg, #2a1a10 0%, #4a3020 30%, #6a4830 55%, #4a3020 80%, #2a1a10 100%)"
     }
   ];
 
@@ -298,7 +302,7 @@ const Projects = () => {
               <Rivet className="absolute bottom-3 right-3 w-4 h-4 z-20 opacity-80" />
               
               <div className="card-image-frame">
-                <img src={p.image} alt={p.title} referrerPolicy="no-referrer" />
+                <div style={{ width: '100%', height: '100%', background: p.gradient }} />
               </div>
               
               <h3 className="font-cinzel font-bold text-2xl text-ink mb-4 text-center">{p.title}</h3>
@@ -446,11 +450,11 @@ const Skills = () => {
 const Contact = () => (
   <section id="contact" className="py-24 md:py-32 relative z-10 border-t border-parchment/10 overflow-hidden">
     <div className="absolute inset-0 z-0">
-      <img 
-        src="https://images.unsplash.com/photo-1478827536114-da961b7f86d2?q=80&w=2000&auto=format&fit=crop" 
-        alt="Dark forest landscape" 
-        className="w-full h-full object-cover object-center opacity-40"
-        referrerPolicy="no-referrer"
+      <div 
+        className="w-full h-full opacity-40"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 30%, rgba(40,25,12,0.8) 0%, transparent 60%), linear-gradient(to bottom, #1a0e08 0%, #2a1810 40%, #1a0e08 100%)',
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-dirt via-dirt/80 to-dirt/40"></div>
     </div>
@@ -536,7 +540,6 @@ export default function App() {
   return (
     <div className="bg-dirt selection:bg-gold selection:text-dirt overflow-x-hidden">
       <TornEdgeFilter />
-      <NavBar />
       <Hero />
       <About />
       <Projects />

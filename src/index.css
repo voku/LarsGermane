@@ -26,18 +26,18 @@
 
   .bg-parchment-texture {
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: repeating-linear-gradient(120deg, transparent, transparent 15px, rgba(139,110,85,0.06) 15px, rgba(139,110,85,0.06) 16px), repeating-linear-gradient(60deg, transparent, transparent 12px, rgba(139,110,85,0.04) 12px, rgba(139,110,85,0.04) 13px), repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(100,80,60,0.03) 8px, rgba(100,80,60,0.03) 9px);
     box-shadow: inset 0 0 60px rgba(62, 39, 35, 0.15), inset 0 0 20px rgba(62, 39, 35, 0.2);
   }
   
   .bg-dirt-texture {
     background-color: var(--color-dirt);
-    background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+    background-image: radial-gradient(ellipse at 15% 15%, rgba(40,25,12,0.6) 0%, transparent 50%), radial-gradient(ellipse at 85% 85%, rgba(40,25,12,0.4) 0%, transparent 50%), repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(20,12,8,0.1) 10px, rgba(20,12,8,0.1) 11px);
   }
 
   .bg-wood-texture {
     background-color: var(--color-wood);
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 4px, rgba(0,0,0,0.1) 4px, rgba(0,0,0,0.1) 5px), repeating-linear-gradient(90deg, transparent 0px, transparent 25px, rgba(0,0,0,0.06) 25px, rgba(0,0,0,0.06) 27px), linear-gradient(180deg, rgba(255,200,120,0.05) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.1) 100%);
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
   }
 
@@ -78,7 +78,7 @@
     justify-content: center;
     padding: 12px 30px;
     background-color: var(--color-wood);
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 4px, rgba(0,0,0,0.1) 4px, rgba(0,0,0,0.1) 5px), repeating-linear-gradient(90deg, transparent 0px, transparent 25px, rgba(0,0,0,0.06) 25px, rgba(0,0,0,0.06) 27px), linear-gradient(180deg, rgba(255,200,120,0.05) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.1) 100%);
     border: 2px solid var(--color-dirt-light);
     box-shadow: 0 5px 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(0,0,0,0.5);
     color: var(--color-parchment);
@@ -122,7 +122,7 @@
     justify-content: center;
     padding: 12px 30px;
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: repeating-linear-gradient(120deg, transparent, transparent 15px, rgba(139,110,85,0.06) 15px, rgba(139,110,85,0.06) 16px), repeating-linear-gradient(60deg, transparent, transparent 12px, rgba(139,110,85,0.04) 12px, rgba(139,110,85,0.04) 13px), repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(100,80,60,0.03) 8px, rgba(100,80,60,0.03) 9px);
     border: 2px solid var(--color-ink-light);
     box-shadow: 0 5px 15px rgba(0,0,0,0.8), inset 0 0 10px rgba(62, 39, 35, 0.2);
     color: var(--color-ink);
@@ -162,7 +162,7 @@
     position: relative;
     width: 100%;
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: repeating-linear-gradient(120deg, transparent, transparent 15px, rgba(139,110,85,0.06) 15px, rgba(139,110,85,0.06) 16px), repeating-linear-gradient(60deg, transparent, transparent 12px, rgba(139,110,85,0.04) 12px, rgba(139,110,85,0.04) 13px), repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(100,80,60,0.03) 8px, rgba(100,80,60,0.03) 9px);
     padding: 80px 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 40px rgba(62, 39, 35, 0.2);
     filter: url(#torn-edge);
@@ -181,7 +181,7 @@
   .card-parchment {
     position: relative;
     background-color: var(--color-parchment);
-    background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+    background-image: repeating-linear-gradient(120deg, transparent, transparent 15px, rgba(139,110,85,0.06) 15px, rgba(139,110,85,0.06) 16px), repeating-linear-gradient(60deg, transparent, transparent 12px, rgba(139,110,85,0.04) 12px, rgba(139,110,85,0.04) 13px), repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(100,80,60,0.03) 8px, rgba(100,80,60,0.03) 9px);
     padding: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(62, 39, 35, 0.1);
     filter: url(#torn-edge);
@@ -194,7 +194,7 @@
   .card-image-frame {
     position: relative;
     background-color: var(--color-wood);
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 4px, rgba(0,0,0,0.1) 4px, rgba(0,0,0,0.1) 5px), repeating-linear-gradient(90deg, transparent 0px, transparent 25px, rgba(0,0,0,0.06) 25px, rgba(0,0,0,0.06) 27px), linear-gradient(180deg, rgba(255,200,120,0.05) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.1) 100%);
     padding: 6px;
     box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
     filter: url(#torn-edge-small);
@@ -214,7 +214,8 @@
     pointer-events: none;
   }
 
-  .card-image-frame img {
+  .card-image-frame img,
+  .card-image-frame > div {
     width: 100%;
     height: 100%;
     object-fit: cover;
