@@ -162,8 +162,8 @@ const Hero = () => (
         alt="Germanic village at sunset" 
         className="w-full h-full object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-dirt/90 via-dirt/50 to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-dirt/80 via-dirt/30 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/80"></div>
     </div>
 
     {/* Top Right Compass */}
