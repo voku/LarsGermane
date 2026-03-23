@@ -41,15 +41,17 @@ const SwordDivider = ({ className = "" }) => (
 );
 
 const TornEdgeFilter = () => (
-  <svg width="0" height="0" className="absolute">
-    <filter id="torn-edge">
-      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="5" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" />
-    </filter>
-    <filter id="torn-edge-small">
-      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
-    </filter>
+  <svg width="0" height="0" className="absolute" aria-hidden="true">
+    <defs>
+      {/* Large torn-paper clip path for banners – objectBoundingBox coords (0–1) */}
+      <clipPath id="torn-clip" clipPathUnits="objectBoundingBox">
+        <path d="M0,0.07 L0.025,0.02 L0.05,0.06 L0.075,0.01 L0.1,0.04 L0.125,0 L0.15,0.05 L0.175,0.02 L0.2,0.06 L0.225,0.01 L0.25,0.04 L0.275,0 L0.3,0.05 L0.325,0.02 L0.35,0.06 L0.375,0.01 L0.4,0.04 L0.425,0.02 L0.45,0.06 L0.475,0 L0.5,0.04 L0.525,0.02 L0.55,0.06 L0.575,0.01 L0.6,0.04 L0.625,0 L0.65,0.05 L0.675,0.02 L0.7,0.06 L0.725,0.01 L0.75,0.04 L0.775,0.02 L0.8,0.06 L0.825,0 L0.85,0.04 L0.875,0.02 L0.9,0.06 L0.925,0.01 L0.95,0.04 L0.975,0.02 L1,0.06 L1,0.94 L0.975,0.98 L0.95,0.95 L0.925,0.99 L0.9,0.96 L0.875,1 L0.85,0.96 L0.825,0.98 L0.8,0.94 L0.775,0.99 L0.75,0.96 L0.725,1 L0.7,0.95 L0.675,0.98 L0.65,0.94 L0.625,0.99 L0.6,0.96 L0.575,1 L0.55,0.95 L0.525,0.98 L0.5,0.96 L0.475,0.99 L0.45,0.94 L0.425,0.98 L0.4,0.96 L0.375,1 L0.35,0.95 L0.325,0.98 L0.3,0.94 L0.275,0.99 L0.25,0.96 L0.225,1 L0.2,0.95 L0.175,0.98 L0.15,0.96 L0.125,0.99 L0.1,0.94 L0.075,0.98 L0.05,0.96 L0.025,1 L0,0.94 Z" />
+      </clipPath>
+      {/* Small torn-paper clip path for cards and frames */}
+      <clipPath id="torn-clip-small" clipPathUnits="objectBoundingBox">
+        <path d="M0,0.05 L0.05,0 L0.1,0.04 L0.15,0.01 L0.2,0.04 L0.25,0 L0.3,0.04 L0.35,0.01 L0.4,0.04 L0.45,0 L0.5,0.03 L0.55,0 L0.6,0.04 L0.65,0.01 L0.7,0.04 L0.75,0 L0.8,0.04 L0.85,0.01 L0.9,0.04 L0.95,0 L1,0.04 L1,0.96 L0.95,1 L0.9,0.97 L0.85,0.99 L0.8,0.96 L0.75,1 L0.7,0.97 L0.65,0.99 L0.6,0.96 L0.55,1 L0.5,0.97 L0.45,0.99 L0.4,0.96 L0.35,1 L0.3,0.97 L0.25,0.99 L0.2,0.96 L0.15,1 L0.1,0.97 L0.05,0.99 L0,0.96 Z" />
+      </clipPath>
+    </defs>
   </svg>
 );
 
@@ -387,20 +389,20 @@ const Skills = () => {
             <div className="relative z-10 p-6">
               <div className="flex items-center justify-center space-x-1 md:space-x-2 border-b border-ink/20 pb-4 mb-4 flex-wrap gap-y-2">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
+                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
                   <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">HTML</span>
                 </div>
                 <SquiggleIcon className="w-5 h-5 md:w-7 md:h-7 text-ink opacity-70" />
                 <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
+                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
                   <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">CSS</span>
                 </div>
                 <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
+                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
                   <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">SCSS</span>
                 </div>
                 <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40" style={{ filter: 'url(#torn-edge-small)' }}></div>
+                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
                   <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">JS</span>
                 </div>
               </div>

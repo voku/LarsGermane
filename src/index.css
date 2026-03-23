@@ -88,7 +88,6 @@
     font-size: 16px;
     text-decoration: none;
     transition: all 0.2s ease;
-    filter: url(#torn-edge-small);
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2), 0 -1px 1px rgba(0, 0, 0, 0.8);
     cursor: pointer;
   }
@@ -105,7 +104,7 @@
   }
 
   .btn-wood:hover {
-    filter: url(#torn-edge-small) brightness(1.1);
+    filter: brightness(1.1);
   }
 
   .btn-wood .arrow {
@@ -132,7 +131,6 @@
     font-size: 16px;
     text-decoration: none;
     transition: all 0.2s ease;
-    filter: url(#torn-edge-small);
     cursor: pointer;
   }
 
@@ -148,7 +146,7 @@
   }
 
   .btn-parchment:hover {
-    filter: url(#torn-edge-small) brightness(1.05);
+    filter: brightness(1.05);
   }
 
   .btn-parchment .arrow {
@@ -164,8 +162,8 @@
     background-color: var(--color-parchment);
     background-image: url("/textures/parchment.png");
     padding: 80px 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 40px rgba(62, 39, 35, 0.2);
-    filter: url(#torn-edge);
+    clip-path: url(#torn-clip);
+    filter: drop-shadow(0 15px 40px rgba(0,0,0,0.9));
     z-index: 20;
     margin-top: -30px;
     color: var(--color-ink);
@@ -183,8 +181,8 @@
     background-color: var(--color-parchment);
     background-image: url("/textures/parchment.png");
     padding: 24px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(62, 39, 35, 0.1);
-    filter: url(#torn-edge);
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.8));
+    clip-path: url(#torn-clip-small);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -197,7 +195,6 @@
     background-image: url("/textures/wood-pattern.png");
     padding: 6px;
     box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-    filter: url(#torn-edge-small);
     margin-bottom: 20px;
     height: 240px;
   }
