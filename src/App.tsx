@@ -160,7 +160,7 @@ const Hero = () => (
     {/* Background - header image */}
     <div className="absolute inset-0 z-0">
       <img
-        src="/images/header.png"
+        src={`${import.meta.env.BASE_URL}images/header.jpg`}
         alt=""
         className="w-full h-full object-cover object-center"
       />
