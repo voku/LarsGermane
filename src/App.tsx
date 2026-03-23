@@ -157,19 +157,12 @@ const NavBar = () => {
 
 const Hero = () => (
   <section className="relative h-[600px] md:h-[800px] flex flex-col justify-center overflow-hidden">
-    {/* Background - atmospheric Viking village scene via CSS */}
+    {/* Background - header image */}
     <div className="absolute inset-0 z-0">
-      <div
-        className="w-full h-full"
-        style={{
-          background: [
-            'radial-gradient(ellipse at 35% 65%, rgba(200,120,30,0.5) 0%, rgba(120,70,20,0.3) 25%, transparent 55%)',
-            'radial-gradient(ellipse at 55% 75%, rgba(180,100,25,0.4) 0%, transparent 45%)',
-            'radial-gradient(ellipse at 80% 40%, rgba(60,35,15,0.6) 0%, transparent 50%)',
-            'radial-gradient(ellipse at 20% 30%, rgba(40,20,8,0.8) 0%, transparent 40%)',
-            'linear-gradient(135deg, #0a0503 0%, #1a0e06 15%, #2d180c 30%, #4a2810 50%, #3a1e0a 65%, #1a0e06 80%, #0a0503 100%)',
-          ].join(', '),
-        }}
+      <img
+        src="/images/header.png"
+        alt=""
+        className="w-full h-full object-cover object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-dirt/90 via-dirt/50 to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/90"></div>
