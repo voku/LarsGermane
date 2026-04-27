@@ -333,6 +333,8 @@ const RuneDividerSection = () => (
 );
 
 const Skills = () => {
+  const stackSkills = ['PHP', 'MySQL', 'HTML', 'CSS', 'JS', 'React', 'Bash'];
+
   return (
     <section id="skills" className="py-20 md:py-32 bg-dirt-texture relative border-t border-parchment/10">
       <div className="container-1200">
@@ -384,13 +386,13 @@ const Skills = () => {
             <CornerOrnament className="absolute bottom-4 right-4 w-6 h-6 text-ink/30 z-20 rotate-180" />
             <div className="relative z-10 p-6">
               <div className="flex items-center justify-center space-x-1 md:space-x-2 border-b border-ink/20 pb-4 mb-4 flex-wrap gap-y-2">
-                {['PHP', 'MySQL', 'HTML', 'CSS', 'JS', 'React', 'Bash'].map((skill, index) => (
+                {stackSkills.map((skill, index) => (
                   <Fragment key={skill}>
                     <div className="relative">
                       <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
                       <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">{skill}</span>
                     </div>
-                    {index < 6 ? <SquiggleIcon className="w-5 h-5 md:w-7 md:h-7 text-ink opacity-70" /> : null}
+                    {index < stackSkills.length - 1 ? <SquiggleIcon className="w-5 h-5 md:w-7 md:h-7 text-ink opacity-70" /> : null}
                   </Fragment>
                 ))}
               </div>
@@ -473,11 +475,11 @@ const Contact = () => (
       <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mb-16 font-body text-parchment text-xl">
         <div className="flex items-center space-x-3">
           <span className="text-gold-dark">✉</span>
-          <a href="mailto:lars@moelleken.org" className="hover:text-gold transition-colors">lars@moelleken.org</a>
+          <a href="mailto:lars@moelleken.org" className="hover:text-gold transition-colors" aria-label="Email Lars Moelleken">lars@moelleken.org</a>
         </div>
         <div className="flex items-center space-x-3">
           <span className="text-gold-dark">⌘</span>
-          <a href="https://moelleken.org/" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">moelleken.org</a>
+          <a href="https://moelleken.org/" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors" aria-label="Visit Lars Moelleken's website">moelleken.org</a>
         </div>
         <div className="flex items-center space-x-3">
           <span className="text-gold-dark">⚲</span>
