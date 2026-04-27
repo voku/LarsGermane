@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { motion } from 'motion/react';
 import { Github, Linkedin, Globe, Shield, PaintBucket, Menu, X } from 'lucide-react';
 
@@ -385,13 +385,13 @@ const Skills = () => {
             <div className="relative z-10 p-6">
               <div className="flex items-center justify-center space-x-1 md:space-x-2 border-b border-ink/20 pb-4 mb-4 flex-wrap gap-y-2">
                 {['PHP', 'MySQL', 'HTML', 'CSS', 'JS', 'React', 'Bash'].map((skill, index) => (
-                  <div key={skill} className="contents">
+                  <Fragment key={skill}>
                     <div className="relative">
                       <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
                       <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">{skill}</span>
                     </div>
                     {index < 6 ? <SquiggleIcon className="w-5 h-5 md:w-7 md:h-7 text-ink opacity-70" /> : null}
-                  </div>
+                  </Fragment>
                 ))}
               </div>
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
@@ -547,4 +547,3 @@ export default function App() {
     </div>
   );
 }
-
