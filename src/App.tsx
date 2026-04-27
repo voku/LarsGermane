@@ -199,11 +199,11 @@ const Hero = () => (
         </div>
 
         <p className="font-cinzel text-parchment text-xs md:text-xl tracking-[0.15em] md:tracking-[0.25em] mb-4 uppercase text-shadow-dark font-bold">
-          WEB DESIGNER &bull; ENTWICKLER &bull; PRODUKTMANAGER
+          PHP DEVELOPER &bull; OPEN-SOURCE MAINTAINER &bull; LEGACY SLAYER
         </p>
 
         <p className="font-body text-parchment-light text-xl md:text-2xl italic mb-8 text-shadow-dark">
-          MIT HERZ & VERSTAND SEIT 2007
+          CLEAN CODE, STATIC ANALYSIS & MODERNISIERUNG SEIT 2007
         </p>
         
         <a href="#projects" className="btn-parchment">
@@ -236,7 +236,7 @@ const About = () => (
             <div className="h-px flex-grow bg-ink/40"></div>
           </div>
           <p className="font-cinzel text-ink/80 tracking-widest uppercase font-bold text-xs md:text-xl whitespace-normal md:whitespace-nowrap px-2 text-center">
-            VIEL ERFAHRUNG, VIEL LEIDENSCHAFT
+            OPEN SOURCE, SAUBERE SOFTWARE, MODERNE SYSTEME
           </p>
           <div className="flex items-center flex-grow">
             <div className="h-px flex-grow bg-ink/40"></div>
@@ -245,7 +245,7 @@ const About = () => (
         </div>
 
         <p className="font-body text-ink text-xl md:text-3xl leading-relaxed max-w-5xl mx-auto font-semibold px-4 md:px-0 text-center">
-          Ich bin <strong>Lars Moelleken</strong>, ein kreativer Germane alias "Voku" mit Leidenschaft für Webentwicklung und Design. Seit 2007 helfe ich, Projekte mit Herz & Verstand ins digitale Zeitalter zu führen - von kleinen Stämmen bis zu römischen Legionen.
+          Ich bin <strong>Lars Moelleken</strong> aka <strong>voku</strong> &ndash; PHP-Entwickler, Software-Architekt und Open-Source-Maintainer aus Voerde (NRW). Ich modernisiere seit 2007 gewachsene Software, liebe Clean Code, Testing und Static Analysis und veröffentliche dafür eigene Libraries, Artikel und Werkzeuge.
         </p>
       </div>
     </div>
@@ -255,18 +255,21 @@ const About = () => (
 const Projects = () => {
   const projects = [
     {
-      title: "KREATIV & STRATEGISCH",
-      desc: "Modernes Design, kluge Lösungen, zielgerichtete Planung.",
+      title: "PORTABLE UTF-8",
+      desc: "Performante Unicode-String-Funktionen für PHP – gemacht für saubere, portable UTF-8-Verarbeitung.",
+      link: "https://github.com/voku/portable-utf8",
       gradient: "radial-gradient(ellipse at 30% 40%, rgba(200,130,50,0.6) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(80,45,15,0.5) 0%, transparent 50%), linear-gradient(135deg, #2a1508 0%, #5a3818 40%, #8a5828 70%, #3a2010 100%)"
     },
     {
-      title: "FLEXIBEL & ZUVERLÄSSIG",
-      desc: "Breites Know-how, vielfältige Fähigkeiten, stetiges Dazulernen.",
+      title: "ANTI-XSS",
+      desc: "Schutz gegen Cross-Site-Scripting in PHP – entstanden aus echter Praxis rund um sichere Webanwendungen.",
+      link: "https://github.com/voku/anti-xss",
       gradient: "radial-gradient(ellipse at 50% 50%, rgba(180,120,50,0.5) 0%, transparent 60%), radial-gradient(ellipse at 20% 70%, rgba(60,30,10,0.4) 0%, transparent 40%), linear-gradient(135deg, #1a1008 0%, #3a2818 25%, #5a4028 50%, #7a5838 75%, #4a3018 100%)"
     },
     {
-      title: "ECHT & BODENSTÄNDIG",
-      desc: "Persönlicher Einsatz, direkter Kontakt, klare Kommunikation.",
+      title: "ARRAYY",
+      desc: "Eine Array-Toolkit-Library für PHP – lesbar, praktisch und hilfreich bei der Arbeit mit Legacy- und Modern-Code.",
+      link: "https://github.com/voku/Arrayy",
       gradient: "radial-gradient(ellipse at 60% 60%, rgba(190,110,40,0.5) 0%, transparent 55%), radial-gradient(ellipse at 30% 30%, rgba(100,60,20,0.4) 0%, transparent 45%), linear-gradient(135deg, #2a1a10 0%, #4a3020 30%, #6a4830 55%, #4a3020 80%, #2a1a10 100%)"
     }
   ];
@@ -285,7 +288,7 @@ const Projects = () => {
             <div className="h-px w-8 md:w-32 bg-parchment/30"></div>
           </div>
           <p className="font-cinzel text-parchment-dark tracking-widest uppercase text-xs md:text-sm font-bold">
-            EINE AUSWAHL MEINER ARBEITEN
+            AUSGEWÄHLTE OPEN-SOURCE-PROJEKTE
           </p>
         </div>
 
@@ -305,10 +308,10 @@ const Projects = () => {
               <h3 className="font-cinzel font-bold text-2xl text-ink mb-4 text-center">{p.title}</h3>
               <p className="text-ink/80 text-center font-body text-xl mb-8 flex-grow font-medium">{p.desc}</p>
               
-              <button className="btn-wood w-full">
+              <a href={p.link} target="_blank" rel="noreferrer" className="btn-wood w-full">
                 <span>MEHR ERFAHREN</span>
                 <span className="arrow">&gt;</span>
-              </button>
+              </a>
             </div>
           ))}
         </div>
@@ -343,20 +346,20 @@ const Skills = () => {
             <SwordDivider className="w-full h-8 drop-shadow-lg" />
           </div>
           <p className="font-cinzel text-parchment-dark tracking-widest uppercase text-xs md:text-sm font-bold relative z-10">
-            WAS ICH DRAUF HABE
+            WORAN ICH ARBEITE UND WOFÜR ICH STEHE
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Block 1: Web Design */}
+          {/* Block 1: Open Source */}
           <div className="card-parchment !p-0">
             <CornerOrnament className="absolute top-4 left-4 w-6 h-6 text-ink/30 z-20" />
             <CornerOrnament className="absolute bottom-4 right-4 w-6 h-6 text-ink/30 z-20 rotate-180" />
             <div className="relative z-10 p-6">
               <div className="flex items-center justify-between border-b border-ink/20 pb-4 mb-4">
                 <div>
-                  <h3 className="font-cinzel text-2xl font-bold text-ink">WEB DESIGN</h3>
-                  <p className="font-cinzel text-[10px] text-ink/80 tracking-widest mt-1 font-bold">DESIGN & KONZEPT</p>
+                  <h3 className="font-cinzel text-2xl font-bold text-ink">OPEN SOURCE</h3>
+                  <p className="font-cinzel text-[10px] text-ink/80 tracking-widest mt-1 font-bold">LIBRARIES & COMMUNITY</p>
                 </div>
                 <div className="text-ink opacity-80">
                   <PaintBucket size={28} strokeWidth={1.5} />
@@ -365,11 +368,11 @@ const Skills = () => {
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Kreative Designs, Usability & UX</span>
+                  <span>Eigene PHP-Libraries mit Fokus auf Qualität, Sicherheit und Performance</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>SEO, Performance & Struktur</span>
+                  <span>Technische Artikel, Wissensaustausch und langfristige Pflege statt Wegwerf-Code</span>
                 </li>
               </ul>
             </div>
@@ -381,46 +384,38 @@ const Skills = () => {
             <CornerOrnament className="absolute bottom-4 right-4 w-6 h-6 text-ink/30 z-20 rotate-180" />
             <div className="relative z-10 p-6">
               <div className="flex items-center justify-center space-x-1 md:space-x-2 border-b border-ink/20 pb-4 mb-4 flex-wrap gap-y-2">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
-                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">HTML</span>
-                </div>
-                <SquiggleIcon className="w-5 h-5 md:w-7 md:h-7 text-ink opacity-70" />
-                <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
-                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">CSS</span>
-                </div>
-                <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
-                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">SCSS</span>
-                </div>
-                <div className="relative">
-                  <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
-                  <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">JS</span>
-                </div>
+                {['PHP', 'MySQL', 'HTML', 'CSS', 'JS', 'React', 'Bash'].map((skill, index) => (
+                  <div key={skill} className="contents">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-wood-texture shadow-inner border border-ink/40"></div>
+                      <span className="relative z-10 text-parchment px-2 md:px-3 py-1 font-cinzel font-bold text-sm md:text-lg block">{skill}</span>
+                    </div>
+                    {index < 6 ? <SquiggleIcon className="w-5 h-5 md:w-7 md:h-7 text-ink opacity-70" /> : null}
+                  </div>
+                ))}
               </div>
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>WordPress, PHP, & MySQL</span>
+                  <span>Breiter Stack von klassischem Web bis React, Shell und Linux</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>PHP- und Programmierung</span>
+                  <span>Clean Code, Testing und Static Analysis als feste Werkzeuge im Alltag</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Block 3: Programmieren */}
+          {/* Block 3: Modernisierung */}
           <div className="card-parchment !p-0">
             <CornerOrnament className="absolute top-4 left-4 w-6 h-6 text-ink/30 z-20" />
             <CornerOrnament className="absolute bottom-4 right-4 w-6 h-6 text-ink/30 z-20 rotate-180" />
             <div className="relative z-10 p-6">
               <div className="flex items-center justify-between border-b border-ink/20 pb-4 mb-4">
                 <div>
-                  <h3 className="font-cinzel text-2xl font-bold text-ink">PROGRAMMIEREN</h3>
-                  <p className="font-cinzel text-[10px] text-ink/80 tracking-widest mt-1 font-bold">ENTWICKLUNG</p>
+                  <h3 className="font-cinzel text-2xl font-bold text-ink">MODERNISIERUNG</h3>
+                  <p className="font-cinzel text-[10px] text-ink/80 tracking-widest mt-1 font-bold">LEGACY TO MODERN</p>
                 </div>
                 <div className="text-ink opacity-80">
                   <DiamondOverlap className="w-8 h-8" />
@@ -429,11 +424,11 @@ const Skills = () => {
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Figma, Photoshop & mehr</span>
+                  <span>Gewachsene Systeme analysieren, aufräumen und Schritt für Schritt modernisieren</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>SEO, Performance & Sicherheit</span>
+                  <span>Performance, Wartbarkeit und Sicherheit verbessern, ohne das Tagesgeschäft zu stoppen</span>
                 </li>
               </ul>
             </div>
@@ -472,35 +467,35 @@ const Contact = () => (
         <div className="h-px w-8 md:w-32 bg-parchment/30"></div>
       </div>
       <p className="font-cinzel text-parchment-dark tracking-widest uppercase text-lg md:text-xl font-bold mb-12">
-        Lass uns ein Projekt schmieden!
+        Lass uns über saubere Software sprechen.
       </p>
       
       <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mb-16 font-body text-parchment text-xl">
         <div className="flex items-center space-x-3">
           <span className="text-gold-dark">✉</span>
-          <span>lars.moelleken@mail.de</span>
+          <a href="mailto:lars@moelleken.org" className="hover:text-gold transition-colors">lars@moelleken.org</a>
         </div>
         <div className="flex items-center space-x-3">
-          <span className="text-gold-dark">✆</span>
-          <span>0176 12345678</span>
+          <span className="text-gold-dark">⌘</span>
+          <a href="https://moelleken.org/" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">moelleken.org</a>
         </div>
         <div className="flex items-center space-x-3">
           <span className="text-gold-dark">⚲</span>
-          <span>Norddeutschland</span>
+          <span>Voerde (NRW), Deutschland</span>
         </div>
       </div>
       
       <div className="flex items-center justify-center space-x-6 mb-16">
         <span className="font-cinzel text-parchment font-bold tracking-widest">Folge mir:</span>
-        <a href="#" className="text-parchment hover:text-gold transition-colors"><Github size={28} /></a>
-        <a href="#" className="text-parchment hover:text-gold transition-colors"><Linkedin size={28} /></a>
-        <a href="#" className="text-parchment hover:text-gold transition-colors"><Globe size={28} /></a>
+        <a href="https://github.com/voku" target="_blank" rel="noreferrer" className="text-parchment hover:text-gold transition-colors" aria-label="GitHub"><Github size={28} /></a>
+        <a href="https://www.linkedin.com/in/larsmoelleken/" target="_blank" rel="noreferrer" className="text-parchment hover:text-gold transition-colors" aria-label="LinkedIn"><Linkedin size={28} /></a>
+        <a href="https://suckup.de/" target="_blank" rel="noreferrer" className="text-parchment hover:text-gold transition-colors" aria-label="Blog"><Globe size={28} /></a>
       </div>
     </div>
     
     <div className="border-t border-parchment/10 pt-8 text-center relative z-10">
       <p className="font-body text-parchment-dark text-base">
-        © 2026 Lars Moelleken • Germanische Webkunst • Handgemacht & frei
+        © 2026 Lars Moelleken • Open Source • Clean Code • Legacy Slayer
       </p>
     </div>
   </section>
@@ -514,14 +509,14 @@ const Testimonial = () => (
           <div className="relative inline-block mb-6">
             <span className="absolute -left-4 md:-left-8 -top-4 font-cinzel text-4xl md:text-6xl text-ink/30">"</span>
             <p className="font-body text-ink text-xl md:text-3xl italic leading-relaxed px-4 md:px-8 font-medium">
-              „Lars hat unsere Werte verstanden und in eine Website verwandelt, die so echt ist wie wir selbst. Klare Empfehlung!“
+              „There is nothing good unless you do it.“
             </p>
             <span className="absolute -right-4 md:-right-8 -bottom-4 md:-bottom-8 font-cinzel text-4xl md:text-6xl text-ink/30">"</span>
           </div>
           
           <div className="flex flex-col items-center justify-center mt-8 space-y-4">
             <p className="font-cinzel text-ink/80 tracking-widest text-sm md:text-lg font-bold">
-              – Familie Brandt, Waldbauern
+              – Erich Kästner
             </p>
             <div className="flex items-center space-x-2 text-gold-dark text-xl md:text-2xl drop-shadow-sm">
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -552,6 +547,4 @@ export default function App() {
     </div>
   );
 }
-
-
 
