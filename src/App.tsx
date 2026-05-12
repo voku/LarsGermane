@@ -96,6 +96,10 @@ const CornerOrnament = ({ className = "" }) => (
 // --- Components ---
 
 const getAssetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const getProjectCardClassName = (featuredOnTablet: boolean) =>
+  ['card-parchment', featuredOnTablet ? 'md:col-span-2 xl:col-span-1' : '']
+    .filter(Boolean)
+    .join(' ');
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -310,7 +314,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((p) => (
-            <div key={p.id} className={`card-parchment ${p.featuredOnTablet ? 'md:col-span-2 xl:col-span-1' : ''}`}>
+            <div key={p.id} className={getProjectCardClassName(p.featuredOnTablet)}>
               {/* Rivets */}
               <Rivet className="absolute top-3 left-3 w-4 h-4 z-20 opacity-80" />
               <Rivet className="absolute top-3 right-3 w-4 h-4 z-20 opacity-80" />
