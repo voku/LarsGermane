@@ -166,7 +166,7 @@ const Hero = () => (
         <source media="(min-width: 640px)" srcSet={asset('images/hero/header-tablet.webp')} />
         <img
           src={asset('images/hero/header-mobile.webp')}
-          alt="Nordisches Dorf bei Sonnenaufgang mit Holzhäusern, Lagerfeuern und einer Figur im Vordergrund."
+          alt="Nordic village at sunrise with wooden houses, campfires, and a figure in the foreground."
           className="w-full h-full object-cover object-[68%_center] sm:object-[60%_center] lg:object-center"
           fetchPriority="high"
         />
@@ -267,6 +267,7 @@ const Projects = () => {
       link: "https://github.com/voku/portable-utf8",
       image: asset('images/projects/portable-utf8.svg'),
       alt: "Illustrierte Pergamentrolle mit Runen und Code-Motiven für das Projekt Portable UTF-8.",
+      featuredOnTablet: false,
     },
     {
       title: "ANTI-XSS",
@@ -274,6 +275,7 @@ const Projects = () => {
       link: "https://github.com/voku/anti-xss",
       image: asset('images/projects/anti-xss.svg'),
       alt: "Illustrierter Schutzschild mit Code-Klammern für das Projekt Anti-XSS.",
+      featuredOnTablet: false,
     },
     {
       title: "ARRAYY",
@@ -281,6 +283,7 @@ const Projects = () => {
       link: "https://github.com/voku/Arrayy",
       image: asset('images/projects/arrayy.svg'),
       alt: "Illustrierte Holzfächer mit verbundenen Knoten für das Projekt Arrayy.",
+      featuredOnTablet: true,
     }
   ];
 
@@ -304,7 +307,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((p, i) => (
-            <div key={i} className={`card-parchment ${i === 2 ? 'md:col-span-2 xl:col-span-1' : ''}`}>
+            <div key={i} className={`card-parchment ${p.featuredOnTablet ? 'md:col-span-2 xl:col-span-1' : ''}`}>
               {/* Rivets */}
               <Rivet className="absolute top-3 left-3 w-4 h-4 z-20 opacity-80" />
               <Rivet className="absolute top-3 right-3 w-4 h-4 z-20 opacity-80" />
