@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" role="img" aria-labelledby="title desc">
+  <title id="title">Anti XSS shield illustration</title>
+  <desc id="desc">A medieval shield with code brackets deflecting hostile script marks on a dark ember-lit background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0906"/>
+      <stop offset="40%" stop-color="#29170f"/>
+      <stop offset="100%" stop-color="#5b3119"/>
+    </linearGradient>
+    <radialGradient id="ember" cx="50%" cy="38%" r="52%">
+      <stop offset="0%" stop-color="#f2ba67" stop-opacity="0.68"/>
+      <stop offset="100%" stop-color="#f2ba67" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ddb57b"/>
+      <stop offset="100%" stop-color="#845127"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000" flood-opacity="0.62"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg)"/>
+  <rect width="1600" height="960" fill="url(#ember)"/>
+  <g opacity="0.16" stroke="#eac88c" stroke-width="8" fill="none">
+    <path d="M240 214l140 140M380 214L240 354"/>
+    <path d="M1220 184l176 176M1396 184l-176 176"/>
+    <path d="M146 704c120-92 208-118 364-110"/>
+    <path d="M1090 742c140-110 250-132 364-122"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M800 172c134 102 264 118 350 126v220c0 178-122 290-350 374C572 808 450 696 450 518V298c86-8 216-24 350-126z" fill="url(#shield)" stroke="#f1d79d" stroke-width="22"/>
+    <path d="M800 234c98 72 196 88 280 96v188c0 138-96 226-280 310-184-84-280-172-280-310V330c84-8 182-24 280-96z" fill="#2f1a11" stroke="#744523" stroke-width="12"/>
+  </g>
+  <g stroke="#f0d79b" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M628 360l-108 120 108 120"/>
+    <path d="M972 360l108 120-108 120"/>
+    <path d="M742 604l116-248"/>
+  </g>
+  <g fill="#f0d79b">
+    <circle cx="800" cy="480" r="22"/>
+    <rect x="760" y="652" width="80" height="28" rx="14"/>
+  </g>
+  <g fill="#efb35d" opacity="0.9">
+    <circle cx="350" cy="732" r="12"/><circle cx="1260" cy="252" r="10"/><circle cx="1310" cy="290" r="8"/>
+    <circle cx="1188" cy="764" r="10"/><circle cx="264" cy="252" r="9"/><circle cx="1340" cy="700" r="11"/>
+  </g>
+  <g fill="#f0d79b" opacity="0.9">
+    <text x="208" y="188" font-size="76" font-family="monospace">&lt;script&gt;</text>
+    <text x="1128" y="852" font-size="72" font-family="monospace">sanitize()</text>
+    <text x="224" y="816" font-size="54" font-family="monospace">escape  •  filter  •  lock down</text>
+  </g>
+</svg>
