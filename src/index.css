@@ -246,3 +246,19 @@ body {
   color: var(--color-parchment);
   font-family: var(--font-body);
 }
+
+.hero-image {
+  object-position: 68% center;
+}
+
+@media (min-width: 640px) {
+  .hero-image {
+    object-position: 60% center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-image {
+    object-position: center;
+  }
+}

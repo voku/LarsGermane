@@ -95,7 +95,7 @@ const CornerOrnament = ({ className = "" }) => (
 
 // --- Components ---
 
-const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const getAssetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -162,12 +162,12 @@ const Hero = () => (
     {/* Background - header image */}
     <div className="absolute inset-0 z-0">
       <picture>
-        <source media="(min-width: 1280px)" srcSet={asset('images/hero/header-desktop.webp')} />
-        <source media="(min-width: 640px)" srcSet={asset('images/hero/header-tablet.webp')} />
+        <source media="(min-width: 1280px)" srcSet={getAssetUrl('images/hero/header-desktop.webp')} />
+        <source media="(min-width: 640px)" srcSet={getAssetUrl('images/hero/header-tablet.webp')} />
         <img
-          src={asset('images/hero/header-mobile.webp')}
+          src={getAssetUrl('images/hero/header-mobile.webp')}
           alt=""
-          className="w-full h-full object-cover object-[68%_center] sm:object-[60%_center] lg:object-center"
+          className="hero-image w-full h-full object-cover"
           fetchPriority="high"
         />
       </picture>
@@ -266,7 +266,7 @@ const Projects = () => {
       title: "PORTABLE UTF-8",
       desc: "Performante Unicode-String-Funktionen für PHP – gemacht für saubere, portable UTF-8-Verarbeitung.",
       link: "https://github.com/voku/portable-utf8",
-      image: asset('images/projects/portable-utf8.svg'),
+      image: getAssetUrl('images/projects/portable-utf8.svg'),
       alt: "Illustrierte Pergamentrolle mit Runen und Code-Motiven für das Projekt Portable UTF-8.",
       featuredOnTablet: false,
     },
@@ -275,7 +275,7 @@ const Projects = () => {
       title: "ANTI-XSS",
       desc: "Schutz gegen Cross-Site-Scripting in PHP – entstanden aus echter Praxis rund um sichere Webanwendungen.",
       link: "https://github.com/voku/anti-xss",
-      image: asset('images/projects/anti-xss.svg'),
+      image: getAssetUrl('images/projects/anti-xss.svg'),
       alt: "Illustrierter Schutzschild mit Code-Klammern für das Projekt Anti-XSS.",
       featuredOnTablet: false,
     },
@@ -284,7 +284,7 @@ const Projects = () => {
       title: "ARRAYY",
       desc: "Eine Array-Toolkit-Library für PHP – lesbar, praktisch und hilfreich bei der Arbeit mit Legacy- und Modern-Code.",
       link: "https://github.com/voku/Arrayy",
-      image: asset('images/projects/arrayy.svg'),
+      image: getAssetUrl('images/projects/arrayy.svg'),
       alt: "Illustrierte Holzfächer mit verbundenen Knoten für das Projekt Arrayy.",
       featuredOnTablet: true,
     }
