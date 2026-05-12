@@ -166,8 +166,8 @@ const Hero = () => (
     {/* Background - header image */}
     <div className="absolute inset-0 z-0">
       <picture>
-        <source media="(min-width: 1280px)" srcSet={getAssetUrl('images/hero/header-desktop.webp')} />
-        <source media="(min-width: 640px)" srcSet={getAssetUrl('images/hero/header-tablet.webp')} />
+        <source type="image/webp" media="(min-width: 1280px)" srcSet={getAssetUrl('images/hero/header-desktop.webp')} />
+        <source type="image/webp" media="(min-width: 640px)" srcSet={getAssetUrl('images/hero/header-tablet.webp')} />
         <img
           src={getAssetUrl('images/hero/header-mobile.webp')}
           alt=""
@@ -322,7 +322,7 @@ const Projects = () => {
               <Rivet className="absolute bottom-3 right-3 w-4 h-4 z-20 opacity-80" />
               
               <div className="card-image-frame">
-                <img src={p.image} alt={p.alt} loading="lazy" />
+                <img src={p.image} alt={p.alt} loading={p.id === 'portable-utf8' ? 'eager' : 'lazy'} />
               </div>
               
               <h3 className="font-cinzel font-bold text-2xl text-ink mb-4 text-center">{p.title}</h3>
