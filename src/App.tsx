@@ -166,7 +166,7 @@ const Hero = () => (
         <source media="(min-width: 640px)" srcSet={asset('images/hero/header-tablet.webp')} />
         <img
           src={asset('images/hero/header-mobile.webp')}
-          alt="Nordic village at sunrise with wooden houses, campfires, and a figure in the foreground."
+          alt=""
           className="w-full h-full object-cover object-[68%_center] sm:object-[60%_center] lg:object-center"
           fetchPriority="high"
         />
@@ -262,6 +262,7 @@ const About = () => (
 const Projects = () => {
   const projects = [
     {
+      id: "portable-utf8",
       title: "PORTABLE UTF-8",
       desc: "Performante Unicode-String-Funktionen für PHP – gemacht für saubere, portable UTF-8-Verarbeitung.",
       link: "https://github.com/voku/portable-utf8",
@@ -270,6 +271,7 @@ const Projects = () => {
       featuredOnTablet: false,
     },
     {
+      id: "anti-xss",
       title: "ANTI-XSS",
       desc: "Schutz gegen Cross-Site-Scripting in PHP – entstanden aus echter Praxis rund um sichere Webanwendungen.",
       link: "https://github.com/voku/anti-xss",
@@ -278,6 +280,7 @@ const Projects = () => {
       featuredOnTablet: false,
     },
     {
+      id: "arrayy",
       title: "ARRAYY",
       desc: "Eine Array-Toolkit-Library für PHP – lesbar, praktisch und hilfreich bei der Arbeit mit Legacy- und Modern-Code.",
       link: "https://github.com/voku/Arrayy",
@@ -306,8 +309,8 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {projects.map((p, i) => (
-            <div key={i} className={`card-parchment ${p.featuredOnTablet ? 'md:col-span-2 xl:col-span-1' : ''}`}>
+          {projects.map((p) => (
+            <div key={p.id} className={`card-parchment ${p.featuredOnTablet ? 'md:col-span-2 xl:col-span-1' : ''}`}>
               {/* Rivets */}
               <Rivet className="absolute top-3 left-3 w-4 h-4 z-20 opacity-80" />
               <Rivet className="absolute top-3 right-3 w-4 h-4 z-20 opacity-80" />
