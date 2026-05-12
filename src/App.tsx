@@ -95,6 +95,8 @@ const CornerOrnament = ({ className = "" }) => (
 
 // --- Components ---
 
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -156,41 +158,46 @@ const NavBar = () => {
 };
 
 const Hero = () => (
-  <section className="relative h-[600px] md:h-[800px] flex flex-col justify-center overflow-hidden">
+  <section className="relative min-h-[620px] sm:min-h-[720px] lg:min-h-[820px] flex items-center overflow-hidden">
     {/* Background - header image */}
     <div className="absolute inset-0 z-0">
-      <img
-        src={`${import.meta.env.BASE_URL}images/header.jpg`}
-        alt=""
-        className="w-full h-full object-cover object-center"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-dirt/90 via-dirt/50 to-transparent"></div>
+      <picture>
+        <source media="(min-width: 1280px)" srcSet={asset('images/hero/header-desktop.webp')} />
+        <source media="(min-width: 640px)" srcSet={asset('images/hero/header-tablet.webp')} />
+        <img
+          src={asset('images/hero/header-mobile.webp')}
+          alt="Nordisches Dorf bei Sonnenaufgang mit Holzhäusern, Lagerfeuern und einer Figur im Vordergrund."
+          className="w-full h-full object-cover object-[68%_center] sm:object-[60%_center] lg:object-center"
+          fetchPriority="high"
+        />
+      </picture>
+      <div className="absolute inset-0 bg-gradient-to-r from-dirt/95 via-dirt/68 to-dirt/20 sm:to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/90"></div>
     </div>
 
     {/* Top Right Compass */}
-    <div className="hidden md:block absolute top-12 right-12 z-20 text-parchment opacity-70">
-      <RunicCompass className="w-32 h-32 drop-shadow-2xl" />
+    <div className="hidden lg:block absolute top-10 right-6 xl:right-12 z-20 text-parchment opacity-70">
+      <RunicCompass className="w-24 h-24 xl:w-32 xl:h-32 drop-shadow-2xl" />
     </div>
 
-    <div className="relative z-10 container-1200 flex flex-col items-start mt-16 md:mt-24">
+    <div className="relative z-10 container-1200 w-full pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col items-start"
+        className="flex max-w-xl lg:max-w-3xl flex-col items-start"
       >
-        <div className="flex items-center space-x-4 md:space-x-6 mb-2">
-          <CrossedAxes className="w-10 h-10 sm:w-12 sm:h-12 md:w-24 md:h-24 text-parchment drop-shadow-lg" />
-          <h1 className="font-cinzel text-4xl sm:text-5xl md:text-[8rem] font-bold text-parchment tracking-tight text-shadow-dark leading-none">
+        <div className="mb-2 flex items-center space-x-3 sm:space-x-4 md:space-x-6">
+          <CrossedAxes className="w-10 h-10 sm:w-12 sm:h-12 md:w-20 md:h-20 xl:w-24 xl:h-24 text-parchment drop-shadow-lg shrink-0" />
+          <h1 className="font-cinzel text-4xl sm:text-5xl md:text-6xl xl:text-[8rem] font-bold text-parchment tracking-tight text-shadow-dark leading-none">
             LARS
           </h1>
         </div>
-        <h1 className="font-cinzel text-4xl sm:text-5xl md:text-[8rem] font-bold text-parchment mb-6 tracking-tight text-shadow-dark leading-none">
+        <h1 className="font-cinzel text-4xl sm:text-5xl md:text-6xl xl:text-[8rem] font-bold text-parchment mb-6 tracking-tight text-shadow-dark leading-none">
           MOELLEKEN
         </h1>
         
-        <div className="flex items-center space-x-3 mb-8 w-full max-w-md">
+        <div className="flex items-center space-x-2 sm:space-x-3 mb-8 w-full max-w-md">
           <div className="w-2 h-2 rotate-45 bg-parchment/80"></div>
           <div className="h-px flex-grow bg-parchment/50"></div>
           <div className="w-3 h-3 rotate-45 bg-parchment/80"></div>
@@ -198,15 +205,15 @@ const Hero = () => (
           <div className="w-2 h-2 rotate-45 bg-parchment/80"></div>
         </div>
 
-        <p className="font-cinzel text-parchment text-xs md:text-xl tracking-[0.15em] md:tracking-[0.25em] mb-4 uppercase text-shadow-dark font-bold">
+        <p className="font-cinzel text-parchment text-[11px] sm:text-sm md:text-lg xl:text-xl tracking-[0.14em] sm:tracking-[0.2em] xl:tracking-[0.25em] mb-4 uppercase text-shadow-dark font-bold">
           PHP DEVELOPER &bull; OPEN-SOURCE MAINTAINER &bull; LEGACY SLAYER
         </p>
 
-        <p className="font-body text-parchment-light text-xl md:text-2xl italic mb-8 text-shadow-dark">
+        <p className="font-body max-w-2xl text-parchment-light text-lg sm:text-xl md:text-2xl italic mb-8 text-shadow-dark">
           CLEAN CODE, STATIC ANALYSIS & MODERNISIERUNG SEIT 2007
         </p>
         
-        <a href="#projects" className="btn-parchment">
+        <a href="#projects" className="btn-parchment w-full sm:w-auto">
           <span>MEHR ERFAHREN</span>
           <span className="arrow">&gt;</span>
         </a>
@@ -258,19 +265,22 @@ const Projects = () => {
       title: "PORTABLE UTF-8",
       desc: "Performante Unicode-String-Funktionen für PHP – gemacht für saubere, portable UTF-8-Verarbeitung.",
       link: "https://github.com/voku/portable-utf8",
-      gradient: "radial-gradient(ellipse at 30% 40%, rgba(200,130,50,0.6) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(80,45,15,0.5) 0%, transparent 50%), linear-gradient(135deg, #2a1508 0%, #5a3818 40%, #8a5828 70%, #3a2010 100%)"
+      image: asset('images/projects/portable-utf8.svg'),
+      alt: "Illustrierte Pergamentrolle mit Runen und Code-Motiven für das Projekt Portable UTF-8.",
     },
     {
       title: "ANTI-XSS",
       desc: "Schutz gegen Cross-Site-Scripting in PHP – entstanden aus echter Praxis rund um sichere Webanwendungen.",
       link: "https://github.com/voku/anti-xss",
-      gradient: "radial-gradient(ellipse at 50% 50%, rgba(180,120,50,0.5) 0%, transparent 60%), radial-gradient(ellipse at 20% 70%, rgba(60,30,10,0.4) 0%, transparent 40%), linear-gradient(135deg, #1a1008 0%, #3a2818 25%, #5a4028 50%, #7a5838 75%, #4a3018 100%)"
+      image: asset('images/projects/anti-xss.svg'),
+      alt: "Illustrierter Schutzschild mit Code-Klammern für das Projekt Anti-XSS.",
     },
     {
       title: "ARRAYY",
       desc: "Eine Array-Toolkit-Library für PHP – lesbar, praktisch und hilfreich bei der Arbeit mit Legacy- und Modern-Code.",
       link: "https://github.com/voku/Arrayy",
-      gradient: "radial-gradient(ellipse at 60% 60%, rgba(190,110,40,0.5) 0%, transparent 55%), radial-gradient(ellipse at 30% 30%, rgba(100,60,20,0.4) 0%, transparent 45%), linear-gradient(135deg, #2a1a10 0%, #4a3020 30%, #6a4830 55%, #4a3020 80%, #2a1a10 100%)"
+      image: asset('images/projects/arrayy.svg'),
+      alt: "Illustrierte Holzfächer mit verbundenen Knoten für das Projekt Arrayy.",
     }
   ];
 
@@ -292,9 +302,9 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((p, i) => (
-            <div key={i} className="card-parchment">
+            <div key={i} className={`card-parchment ${i === 2 ? 'md:col-span-2 xl:col-span-1' : ''}`}>
               {/* Rivets */}
               <Rivet className="absolute top-3 left-3 w-4 h-4 z-20 opacity-80" />
               <Rivet className="absolute top-3 right-3 w-4 h-4 z-20 opacity-80" />
@@ -302,7 +312,7 @@ const Projects = () => {
               <Rivet className="absolute bottom-3 right-3 w-4 h-4 z-20 opacity-80" />
               
               <div className="card-image-frame">
-                <div style={{ width: '100%', height: '100%', background: p.gradient }} />
+                <img src={p.image} alt={p.alt} loading="lazy" />
               </div>
               
               <h3 className="font-cinzel font-bold text-2xl text-ink mb-4 text-center">{p.title}</h3>
