@@ -248,12 +248,12 @@ body {
 }
 
 .hero-image {
-  object-position: 68% center;
+  object-position: center 20%;
 }
 
 @media (min-width: 640px) {
   .hero-image {
-    object-position: 60% center;
+    object-position: 56% center;
   }
 }
 

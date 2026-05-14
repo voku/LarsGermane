@@ -165,7 +165,7 @@ const Hero = () => (
   <section className="relative min-h-[620px] sm:min-h-[720px] lg:min-h-[820px] flex items-center overflow-hidden">
     {/* Background - header image */}
     <div className="absolute inset-0 z-0">
-      <picture>
+      <picture className="block h-full w-full">
         <source type="image/webp" media="(min-width: 1280px)" srcSet={getAssetUrl('images/hero/header-desktop.webp')} />
         <source type="image/webp" media="(min-width: 640px)" srcSet={getAssetUrl('images/hero/header-tablet.webp')} />
         <img
