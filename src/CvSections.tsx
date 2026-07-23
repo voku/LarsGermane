@@ -78,23 +78,10 @@ const experience: readonly ExperienceEntry[] = [
 ];
 
 const education: readonly EducationEntry[] = [
-  {
-    period: '2011 – 2013',
-    title: 'Fachinformatiker Anwendungsentwicklung',
-  },
-  {
-    period: '2010 – 2011',
-    title: 'Informatik, ohne Abschluss',
-    institution: 'Hochschule Niederrhein',
-  },
-  {
-    period: '2007 – 2010',
-    title: 'Fachinformatiker Systemintegration',
-  },
-  {
-    period: '2004 – 2007',
-    title: 'Staatlich geprüfter Assistent für Betriebsinformatik',
-  },
+  {period: '2011 – 2013', title: 'Fachinformatiker Anwendungsentwicklung'},
+  {period: '2010 – 2011', title: 'Informatik, ohne Abschluss', institution: 'Hochschule Niederrhein'},
+  {period: '2007 – 2010', title: 'Fachinformatiker Systemintegration'},
+  {period: '2004 – 2007', title: 'Staatlich geprüfter Assistent für Betriebsinformatik'},
 ];
 
 const SectionHeading = ({title, subtitle}: Readonly<{title: string; subtitle: string}>) => (
@@ -102,15 +89,11 @@ const SectionHeading = ({title, subtitle}: Readonly<{title: string; subtitle: st
     <div className="mb-4 flex items-center justify-center gap-3 md:gap-6">
       <div className="h-px w-8 bg-parchment/30 md:w-28" />
       <div className="h-2.5 w-2.5 rotate-45 bg-parchment/60" />
-      <h2 className="px-2 font-cinzel text-3xl font-bold text-parchment text-shadow-dark md:text-6xl">
-        {title}
-      </h2>
+      <h2 className="px-2 font-cinzel text-3xl font-bold text-parchment text-shadow-dark md:text-6xl">{title}</h2>
       <div className="h-2.5 w-2.5 rotate-45 bg-parchment/60" />
       <div className="h-px w-8 bg-parchment/30 md:w-28" />
     </div>
-    <p className="font-cinzel text-xs font-bold uppercase tracking-[0.22em] text-parchment-dark md:text-sm">
-      {subtitle}
-    </p>
+    <p className="font-cinzel text-xs font-bold uppercase tracking-[0.22em] text-parchment-dark md:text-sm">{subtitle}</p>
   </div>
 );
 
@@ -120,15 +103,8 @@ export const ExperienceSection = () => (
       <SectionHeading title="BERUFSWEG" subtitle="VOM LINUX-BETRIEB ZUR SOFTWARE-ARCHITEKTUR" />
 
       <div className="mx-auto max-w-6xl space-y-8">
-        {experience.map((entry, index) => (
-          <motion.article
-            key={`${entry.period}-${entry.company}`}
-            initial={{opacity: 0, y: 20}}
-            whileInView={{opacity: 1, y: 0}}
-            viewport={{once: true, amount: 0.15}}
-            transition={{duration: 0.45, delay: Math.min(index * 0.05, 0.2)}}
-            className="grid items-start gap-4 md:grid-cols-[10rem_1fr] md:gap-8"
-          >
+        {experience.map((entry) => (
+          <article key={`${entry.period}-${entry.company}`} className="grid items-start gap-4 md:grid-cols-[10rem_1fr] md:gap-8">
             <div className="relative z-10 flex items-center gap-3 md:block md:text-right">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold-dark/60 bg-wood-texture text-gold-dark shadow-lg md:ml-auto md:mb-3">
                 <BriefcaseBusiness size={20} aria-hidden="true" />
@@ -140,13 +116,10 @@ export const ExperienceSection = () => (
               <div className="relative z-10 p-6 md:p-8">
                 <div className="mb-5 border-b border-ink/20 pb-5">
                   <h3 className="font-cinzel text-2xl font-bold text-ink md:text-3xl">{entry.company}</h3>
-                  <p className="mt-2 font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-ink/70 md:text-sm">
-                    {entry.role}
-                  </p>
+                  <p className="mt-2 font-cinzel text-xs font-bold uppercase tracking-[0.16em] text-ink/70 md:text-sm">{entry.role}</p>
                 </div>
 
                 <p className="font-body text-lg font-semibold leading-relaxed text-ink md:text-xl">{entry.summary}</p>
-
                 <ul className="mt-6 space-y-3 font-body text-base font-medium text-ink/85 md:text-lg">
                   {entry.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start gap-3">
@@ -157,7 +130,7 @@ export const ExperienceSection = () => (
                 </ul>
               </div>
             </div>
-          </motion.article>
+          </article>
         ))}
       </div>
     </div>
