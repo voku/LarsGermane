@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { motion } from 'motion/react';
 import { Github, Linkedin, Globe, Shield, PaintBucket, Menu, X } from 'lucide-react';
+import {EducationSection, ExperienceSection} from './CvSections';
 
 // --- SVG Assets ---
 
@@ -117,9 +118,10 @@ const NavBar = () => {
         </div>
         
         {/* Center Links - Desktop */}
-        <div className="hidden md:flex items-center space-x-8 font-cinzel font-bold text-sm tracking-widest text-gold-dark">
+        <div className="hidden md:flex items-center space-x-6 font-cinzel font-bold text-xs lg:text-sm tracking-widest text-gold-dark">
           <a href="#" className="hover:text-gold hover:text-shadow-glow transition-all">START</a>
           <a href="#about" className="hover:text-gold hover:text-shadow-glow transition-all">ÜBER MICH</a>
+          <a href="#experience" className="hover:text-gold hover:text-shadow-glow transition-all">BERUFSWEG</a>
           <a href="#projects" className="hover:text-gold hover:text-shadow-glow transition-all">PROJEKTE</a>
           <a href="#skills" className="hover:text-gold hover:text-shadow-glow transition-all">FÄHIGKEITEN</a>
           <a href="#contact" className="hover:text-gold hover:text-shadow-glow transition-all">KONTAKT</a>
@@ -146,6 +148,7 @@ const NavBar = () => {
           <div className="flex flex-col items-center py-6 space-y-6 font-cinzel font-bold text-sm tracking-widest text-gold-dark">
             <a href="#" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">START</a>
             <a href="#about" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">ÜBER MICH</a>
+            <a href="#experience" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">BERUFSWEG</a>
             <a href="#projects" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">PROJEKTE</a>
             <a href="#skills" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">FÄHIGKEITEN</a>
             <a href="#contact" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">KONTAKT</a>
@@ -170,7 +173,7 @@ const Hero = () => (
         <source type="image/webp" media="(min-width: 640px)" srcSet={getAssetUrl('images/hero/header-tablet.webp')} />
         <img
           src={getAssetUrl('images/hero/header-mobile.webp')}
-          alt=""
+          alt="KI-generiertes Porträt von Lars Moelleken als Wikinger"
           className="hero-image w-full h-full object-cover"
           fetchPriority="high"
         />
@@ -210,15 +213,15 @@ const Hero = () => (
         </div>
 
         <p className="font-cinzel text-parchment text-[11px] sm:text-sm md:text-lg xl:text-xl tracking-[0.14em] sm:tracking-[0.2em] xl:tracking-[0.25em] mb-4 uppercase text-shadow-dark font-bold">
-          PHP DEVELOPER &bull; OPEN-SOURCE MAINTAINER &bull; LEGACY SLAYER
+          SENIOR PHP DEVELOPER &bull; SOFTWARE ARCHITECT &bull; LEGACY SLAYER
         </p>
 
         <p className="font-body max-w-2xl text-parchment-light text-lg sm:text-xl md:text-2xl italic mb-8 text-shadow-dark">
-          CLEAN CODE, STATIC ANALYSIS & MODERNISIERUNG SEIT 2007
+          RUND 20 JAHRE BACKEND, STATIC ANALYSIS & SYSTEMVERSTÄNDNIS
         </p>
         
-        <a href="#projects" className="btn-parchment w-full sm:w-auto">
-          <span>MEHR ERFAHREN</span>
+        <a href="#experience" className="btn-parchment w-full sm:w-auto">
+          <span>BERUFSWEG</span>
           <span className="arrow">&gt;</span>
         </a>
       </motion.div>
@@ -247,7 +250,7 @@ const About = () => (
             <div className="h-px flex-grow bg-ink/40"></div>
           </div>
           <p className="font-cinzel text-ink/80 tracking-widest uppercase font-bold text-xs md:text-xl whitespace-normal md:whitespace-nowrap px-2 text-center">
-            OPEN SOURCE, SAUBERE SOFTWARE, MODERNE SYSTEME
+            BACKEND, ARCHITEKTUR UND SYSTEMVERSTÄNDNIS
           </p>
           <div className="flex items-center flex-grow">
             <div className="h-px flex-grow bg-ink/40"></div>
@@ -256,7 +259,7 @@ const About = () => (
         </div>
 
         <p className="font-body text-ink text-xl md:text-3xl leading-relaxed max-w-5xl mx-auto font-semibold px-4 md:px-0 text-center">
-          Ich bin <strong>Lars Moelleken</strong> aka <strong>voku</strong> &ndash; PHP-Entwickler, Software-Architekt und Open-Source-Maintainer aus Voerde (NRW). Ich modernisiere seit 2007 gewachsene Software, liebe Clean Code, Testing und Static Analysis und veröffentliche dafür eigene Libraries, Artikel und Werkzeuge.
+          Ich bin <strong>Lars Moelleken</strong> aka <strong>voku</strong> &ndash; Senior PHP Developer und Software-Architekt mit rund 20 Jahren Erfahrung in Entwicklung, Modernisierung und stabilem Betrieb geschäftskritischer Anwendungen. Mein Schwerpunkt liegt auf großen Legacy-Codebases, klaren Typverträgen, statischer Analyse, automatisierten Tests, CI/CD und sicheren Enterprise-Integrationen.
         </p>
       </div>
     </div>
@@ -294,6 +297,24 @@ const Projects = () => {
     }
   ];
 
+  const currentProjects = [
+    {
+      title: 'AGENT LOOP',
+      desc: 'Git-native Governance für Tasks, Sessions, selektiven Recall, Verifikation und kontrolliertes Lernen von Coding Agents.',
+      link: 'https://github.com/voku/agent-loop',
+    },
+    {
+      title: 'PHPSTAN AGENT FORMAT',
+      desc: 'Maschinenlesbare PHPStan-Ausgaben mit Root-Cause-Clustern, Reparaturhinweisen und kompaktem Kontext für Coding Agents.',
+      link: 'https://github.com/voku/phpstan-agent-format',
+    },
+    {
+      title: 'DEV WISDOM',
+      desc: 'Versionierte Learnings aus Systembetrieb, Softwareentwicklung, Open Source und überprüfbaren Agenten-Workflows.',
+      link: 'https://github.com/voku/learnings',
+    },
+  ] as const;
+
   return (
     <section id="projects" className="py-20 md:py-32 bg-dirt-texture relative z-10">
       <div className="container-1200">
@@ -308,7 +329,7 @@ const Projects = () => {
             <div className="h-px w-8 md:w-32 bg-parchment/30"></div>
           </div>
           <p className="font-cinzel text-parchment-dark tracking-widest uppercase text-xs md:text-sm font-bold">
-            AUSGEWÄHLTE OPEN-SOURCE-PROJEKTE
+            OPEN SOURCE, STATIC ANALYSIS UND AGENT ENGINEERING
           </p>
         </div>
 
@@ -335,6 +356,21 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {currentProjects.map((project) => (
+            <a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group border border-parchment/15 bg-wood-texture p-6 shadow-xl transition-transform hover:-translate-y-1"
+            >
+              <h3 className="font-cinzel text-xl font-bold text-gold-dark transition-colors group-hover:text-gold">{project.title}</h3>
+              <p className="mt-3 font-body text-lg font-medium leading-relaxed text-parchment-light">{project.desc}</p>
+            </a>
+          ))}
+        </div>
         
         <div className="text-center mt-12 font-runic text-parchment/60 text-lg md:text-2xl tracking-[0.3em] md:tracking-[0.6em] text-shadow-dark font-bold px-4 break-words">
           XXV ᛏᛒᚱᛗᚱᚾ ᛒᚠᚱᚷᛏ
@@ -353,7 +389,7 @@ const RuneDividerSection = () => (
 );
 
 const Skills = () => {
-  const stackSkills = ['PHP', 'MySQL', 'HTML', 'CSS', 'JS', 'React', 'Bash'];
+  const stackSkills = ['PHP 8.x', 'MariaDB', 'Linux', 'Docker', 'PHPStan', 'CI/CD', 'LDAP', 'M365'];
 
   return (
     <section id="skills" className="py-20 md:py-32 bg-dirt-texture relative border-t border-parchment/10">
@@ -390,11 +426,11 @@ const Skills = () => {
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Eigene PHP-Libraries mit Fokus auf Qualität, Sicherheit und Performance</span>
+                  <span>Langjährig gepflegte PHP-Libraries mit Fokus auf Unicode, Sicherheit, Typisierung und stabile APIs</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Technische Artikel, Wissensaustausch und langfristige Pflege statt Wegwerf-Code</span>
+                  <span>Agent-Engineering- und PHPStan-Werkzeuge für überprüfbare Entwicklung statt Prompt-Magie</span>
                 </li>
               </ul>
             </div>
@@ -419,11 +455,11 @@ const Skills = () => {
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Breiter Stack von klassischem Web bis React, Shell und Linux</span>
+                  <span>PHP 8.x, MariaDB/MySQL, Linux, Docker, LDAP/AD, M365/Exchange und PowerShell</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Clean Code, Testing und Static Analysis als feste Werkzeuge im Alltag</span>
+                  <span>PHPStan max, PHPUnit, Codeception, präzise PHPDocs und CI/CD als feste Qualitätsgates</span>
                 </li>
               </ul>
             </div>
@@ -446,11 +482,11 @@ const Skills = () => {
               <ul className="space-y-3 font-body text-ink text-lg font-medium">
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Gewachsene Systeme analysieren, aufräumen und Schritt für Schritt modernisieren</span>
+                  <span>Große Legacy-Codebases mit typisierten APIs, klaren Verantwortlichkeiten und kleinen Diffs modernisieren</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-ink font-bold mt-1">✓</span>
-                  <span>Performance, Wartbarkeit und Sicherheit verbessern, ohne das Tagesgeschäft zu stoppen</span>
+                  <span>Performance, Wartbarkeit und Sicherheit verbessern, ohne geschäftskritische Abläufe zu gefährden</span>
                 </li>
               </ul>
             </div>
@@ -489,7 +525,7 @@ const Contact = () => (
         <div className="h-px w-8 md:w-32 bg-parchment/30"></div>
       </div>
       <p className="font-cinzel text-parchment-dark tracking-widest uppercase text-lg md:text-xl font-bold mb-12">
-        Lass uns über saubere Software sprechen.
+        Lass uns über belastbare Software sprechen.
       </p>
       
       <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mb-16 font-body text-parchment text-xl">
@@ -517,7 +553,7 @@ const Contact = () => (
     
     <div className="border-t border-parchment/10 pt-8 text-center relative z-10">
       <p className="font-body text-parchment-dark text-base">
-        © 2026 Lars Moelleken • Open Source • Clean Code • Legacy Slayer
+        © 2026 Lars Moelleken • Open Source • Static Analysis • Legacy Slayer
       </p>
     </div>
   </section>
@@ -559,11 +595,14 @@ export default function App() {
   return (
     <div className="bg-dirt selection:bg-gold selection:text-dirt overflow-x-hidden">
       <TornEdgeFilter />
+      <NavBar />
       <Hero />
       <About />
+      <ExperienceSection />
       <Projects />
       <RuneDividerSection />
       <Skills />
+      <EducationSection />
       <Testimonial />
       <Contact />
     </div>
