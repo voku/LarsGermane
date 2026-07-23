@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { motion } from 'motion/react';
 import { Github, Linkedin, Globe, Shield, PaintBucket, Menu, X } from 'lucide-react';
+import {EducationSection, ExperienceSection} from './CvSections';
 
 // --- SVG Assets ---
 
@@ -117,9 +118,10 @@ const NavBar = () => {
         </div>
         
         {/* Center Links - Desktop */}
-        <div className="hidden md:flex items-center space-x-8 font-cinzel font-bold text-sm tracking-widest text-gold-dark">
+        <div className="hidden md:flex items-center space-x-6 font-cinzel font-bold text-xs lg:text-sm tracking-widest text-gold-dark">
           <a href="#" className="hover:text-gold hover:text-shadow-glow transition-all">START</a>
           <a href="#about" className="hover:text-gold hover:text-shadow-glow transition-all">ÜBER MICH</a>
+          <a href="#experience" className="hover:text-gold hover:text-shadow-glow transition-all">BERUFSWEG</a>
           <a href="#projects" className="hover:text-gold hover:text-shadow-glow transition-all">PROJEKTE</a>
           <a href="#skills" className="hover:text-gold hover:text-shadow-glow transition-all">FÄHIGKEITEN</a>
           <a href="#contact" className="hover:text-gold hover:text-shadow-glow transition-all">KONTAKT</a>
@@ -146,6 +148,7 @@ const NavBar = () => {
           <div className="flex flex-col items-center py-6 space-y-6 font-cinzel font-bold text-sm tracking-widest text-gold-dark">
             <a href="#" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">START</a>
             <a href="#about" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">ÜBER MICH</a>
+            <a href="#experience" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">BERUFSWEG</a>
             <a href="#projects" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">PROJEKTE</a>
             <a href="#skills" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">FÄHIGKEITEN</a>
             <a href="#contact" onClick={() => setIsOpen(false)} className="hover:text-gold hover:text-shadow-glow transition-all">KONTAKT</a>
@@ -210,15 +213,15 @@ const Hero = () => (
         </div>
 
         <p className="font-cinzel text-parchment text-[11px] sm:text-sm md:text-lg xl:text-xl tracking-[0.14em] sm:tracking-[0.2em] xl:tracking-[0.25em] mb-4 uppercase text-shadow-dark font-bold">
-          SENIOR PHP DEVELOPER &bull; SOFTWARE ARCHITECT &bull; OPEN-SOURCE MAINTAINER
+          SENIOR PHP DEVELOPER &bull; SOFTWARE ARCHITECT &bull; LEGACY SLAYER
         </p>
 
         <p className="font-body max-w-2xl text-parchment-light text-lg sm:text-xl md:text-2xl italic mb-8 text-shadow-dark">
-          LEGACY-MODERNISIERUNG, STATIC ANALYSIS & ÜBERPRÜFBARE DELIVERY
+          RUND 20 JAHRE BACKEND, STATIC ANALYSIS & SYSTEMVERSTÄNDNIS
         </p>
         
-        <a href="#projects" className="btn-parchment w-full sm:w-auto">
-          <span>MEHR ERFAHREN</span>
+        <a href="#experience" className="btn-parchment w-full sm:w-auto">
+          <span>BERUFSWEG</span>
           <span className="arrow">&gt;</span>
         </a>
       </motion.div>
@@ -294,6 +297,24 @@ const Projects = () => {
     }
   ];
 
+  const currentProjects = [
+    {
+      title: 'AGENT LOOP',
+      desc: 'Git-native Governance für Tasks, Sessions, selektiven Recall, Verifikation und kontrolliertes Lernen von Coding Agents.',
+      link: 'https://github.com/voku/agent-loop',
+    },
+    {
+      title: 'PHPSTAN AGENT FORMAT',
+      desc: 'Maschinenlesbare PHPStan-Ausgaben mit Root-Cause-Clustern, Reparaturhinweisen und kompaktem Kontext für Coding Agents.',
+      link: 'https://github.com/voku/phpstan-agent-format',
+    },
+    {
+      title: 'DEV WISDOM',
+      desc: 'Versionierte Learnings aus Systembetrieb, Softwareentwicklung, Open Source und überprüfbaren Agenten-Workflows.',
+      link: 'https://github.com/voku/learnings',
+    },
+  ] as const;
+
   return (
     <section id="projects" className="py-20 md:py-32 bg-dirt-texture relative z-10">
       <div className="container-1200">
@@ -308,7 +329,7 @@ const Projects = () => {
             <div className="h-px w-8 md:w-32 bg-parchment/30"></div>
           </div>
           <p className="font-cinzel text-parchment-dark tracking-widest uppercase text-xs md:text-sm font-bold">
-            AUSGEWÄHLTE OPEN-SOURCE-PROJEKTE
+            OPEN SOURCE, STATIC ANALYSIS UND AGENT ENGINEERING
           </p>
         </div>
 
@@ -333,6 +354,21 @@ const Projects = () => {
                 <span className="arrow">&gt;</span>
               </a>
             </div>
+          ))}
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {currentProjects.map((project) => (
+            <a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group border border-parchment/15 bg-wood-texture p-6 shadow-xl transition-transform hover:-translate-y-1"
+            >
+              <h3 className="font-cinzel text-xl font-bold text-gold-dark transition-colors group-hover:text-gold">{project.title}</h3>
+              <p className="mt-3 font-body text-lg font-medium leading-relaxed text-parchment-light">{project.desc}</p>
+            </a>
           ))}
         </div>
         
@@ -517,7 +553,7 @@ const Contact = () => (
     
     <div className="border-t border-parchment/10 pt-8 text-center relative z-10">
       <p className="font-body text-parchment-dark text-base">
-        © 2026 Lars Moelleken • Open Source • Static Analysis • Legacy-Modernisierung
+        © 2026 Lars Moelleken • Open Source • Static Analysis • Legacy Slayer
       </p>
     </div>
   </section>
@@ -559,11 +595,14 @@ export default function App() {
   return (
     <div className="bg-dirt selection:bg-gold selection:text-dirt overflow-x-hidden">
       <TornEdgeFilter />
+      <NavBar />
       <Hero />
       <About />
+      <ExperienceSection />
       <Projects />
       <RuneDividerSection />
       <Skills />
+      <EducationSection />
       <Testimonial />
       <Contact />
     </div>
