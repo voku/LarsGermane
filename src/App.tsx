@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
-import { Github, Linkedin, Globe, Shield, PaintBucket, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Globe, Shield, PaintBucket, Menu, X, ShieldCheck, Type, Brackets } from 'lucide-react';
 import {EducationSection, ExperienceSection} from './CvSections';
 import {CommandPalette, Embers, Intro, Reveal, ScrollProgress, SectionRail, SoundToggle, Tilt, goTo, useActiveSection} from './Experience';
 
@@ -153,6 +153,7 @@ const NavBar = () => {
             <div className="flex items-center space-x-6 pt-4 border-t border-dirt-dark w-1/2 justify-center">
               <Shield className="w-6 h-6 drop-shadow-md" />
               <CrossedAxes className="w-8 h-8 drop-shadow-md" />
+              <SoundToggle />
             </div>
           </div>
         </div>
@@ -293,29 +294,32 @@ const Projects = () => {
   const projects = [
     {
       id: "portable-utf8",
+      icon: <Type size={26} aria-hidden="true" />,
       title: "PORTABLE UTF-8",
       desc: "Performante Unicode-String-Funktionen für PHP – gemacht für saubere, portable UTF-8-Verarbeitung.",
       link: "https://github.com/voku/portable-utf8",
-      image: getAssetUrl('images/projects/portable-utf8.svg'),
-      alt: "Illustrierte Pergamentrolle mit Runen und Code-Motiven für das Projekt Portable UTF-8.",
+      image: getAssetUrl('images/projects/portable-utf8.webp'),
+      alt: "Handwerker am Lagerfeuer in einem Wikingerdorf – Sinnbild für sorgfältige Textverarbeitung.",
       featuredOnTablet: false,
     },
     {
       id: "anti-xss",
+      icon: <ShieldCheck size={26} aria-hidden="true" />,
       title: "ANTI-XSS",
       desc: "Schutz gegen Cross-Site-Scripting in PHP – entstanden aus echter Praxis rund um sichere Webanwendungen.",
       link: "https://github.com/voku/anti-xss",
-      image: getAssetUrl('images/projects/anti-xss.svg'),
-      alt: "Illustrierter Schutzschild mit Code-Klammern für das Projekt Anti-XSS.",
+      image: getAssetUrl('images/projects/anti-xss.webp'),
+      alt: "Lars als Wikinger-Wächter mit Schwert vor Langhäusern – Sinnbild für Schutz.",
       featuredOnTablet: false,
     },
     {
       id: "arrayy",
+      icon: <Brackets size={26} aria-hidden="true" />,
       title: "ARRAYY",
       desc: "Eine Array-Toolkit-Library für PHP – lesbar, praktisch und hilfreich bei der Arbeit mit Legacy- und Modern-Code.",
       link: "https://github.com/voku/Arrayy",
-      image: getAssetUrl('images/projects/arrayy.svg'),
-      alt: "Illustrierte Holzfächer mit verbundenen Knoten für das Projekt Arrayy.",
+      image: getAssetUrl('images/projects/arrayy.webp'),
+      alt: "Geordnete Langhäuser im Morgenlicht – Sinnbild für strukturierte Daten.",
       featuredOnTablet: true,
     }
   ];
@@ -339,7 +343,7 @@ const Projects = () => {
   ] as const;
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-dirt-texture relative z-10">
+    <section id="projects" className="py-14 md:py-28 bg-dirt-texture relative z-10">
       <div className="container-1200">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-2 md:space-x-4 mb-4">
@@ -369,6 +373,7 @@ const Projects = () => {
               
               <div className="card-image-frame">
                 <img src={p.image} alt={p.alt} loading={p.id === 'portable-utf8' ? 'eager' : 'lazy'} />
+                <span className="emblem">{p.icon}</span>
               </div>
               
               <h3 className="font-cinzel font-bold text-2xl text-ink mb-4 text-center">{p.title}</h3>
@@ -419,7 +424,7 @@ const Skills = () => {
   const stackSkills = ['PHP 8.x', 'MariaDB', 'Linux', 'Docker', 'PHPStan', 'CI/CD', 'LDAP', 'M365'];
 
   return (
-    <section id="skills" className="py-20 md:py-32 bg-dirt-texture relative border-t border-parchment/10">
+    <section id="skills" className="py-14 md:py-28 bg-dirt-texture relative border-t border-parchment/10">
       <div className="container-1200">
         <div className="text-center mb-16 relative">
           <div className="flex items-center justify-center mb-4 relative z-10">
@@ -525,20 +530,10 @@ const Skills = () => {
 };
 
 const Contact = () => (
-  <section id="contact" className="py-24 md:py-32 relative z-10 border-t border-parchment/10 overflow-hidden">
+  <section id="contact" className="py-14 md:py-28 relative z-10 border-t border-parchment/10 overflow-hidden">
     <div className="absolute inset-0 z-0">
-      <div 
-        className="w-full h-full"
-        style={{
-          background: [
-            'radial-gradient(ellipse at 50% 30%, rgba(40,25,12,0.8) 0%, transparent 60%)',
-            'radial-gradient(ellipse at 20% 70%, rgba(30,18,8,0.6) 0%, transparent 50%)',
-            'radial-gradient(ellipse at 80% 60%, rgba(35,20,10,0.5) 0%, transparent 45%)',
-            'linear-gradient(to bottom, #1a0e08 0%, #2a1810 40%, #1a0e08 100%)',
-          ].join(', '),
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-dirt via-dirt/80 to-dirt/40"></div>
+      <img src={getAssetUrl('images/contact-bg.webp')} alt="" loading="lazy" className="h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-dirt via-dirt/85 to-dirt/70"></div>
     </div>
     
     <div className="container-1200 text-center relative z-10">
@@ -587,16 +582,16 @@ const Contact = () => (
 );
 
 const Testimonial = () => (
-  <section className="py-24 md:py-32 bg-dirt-texture relative z-10">
+  <section className="py-14 md:py-28 bg-dirt-texture relative z-10">
     <div className="container-1200 relative">
       <div className="card-parchment !p-6 md:!p-12">
         <div className="relative z-10 text-center">
           <div className="relative inline-block mb-6">
-            <span className="absolute -left-4 md:-left-8 -top-4 font-cinzel text-4xl md:text-6xl text-ink/30">"</span>
+            
             <p className="font-body text-ink text-xl md:text-3xl italic leading-relaxed px-4 md:px-8 font-medium">
               „There is nothing good unless you do it.“
             </p>
-            <span className="absolute -right-4 md:-right-8 -bottom-4 md:-bottom-8 font-cinzel text-4xl md:text-6xl text-ink/30">"</span>
+            
           </div>
           
           <div className="flex flex-col items-center justify-center mt-8 space-y-4">
@@ -610,7 +605,7 @@ const Testimonial = () => (
         </div>
         
         {/* Wax Seal */}
-        <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 drop-shadow-xl z-20">
+        <div className="absolute right-3 bottom-3 md:right-6 md:bottom-6 drop-shadow-xl z-20">
           <WaxSeal className="w-16 h-16 md:w-24 md:h-24" />
         </div>
       </div>
