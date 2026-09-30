@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { Github, Linkedin, Globe, Shield, PaintBucket, Menu, X } from 'lucide-react';
 import {EducationSection, ExperienceSection} from './CvSections';
-import {CommandPalette, Embers, Intro, Reveal, ScrollProgress, SectionRail, SoundToggle, Tilt, Torchlight, goTo, useActiveSection} from './Experience';
+import {CommandPalette, Embers, Intro, Reveal, ScrollProgress, SectionRail, SoundToggle, Tilt, goTo, useActiveSection} from './Experience';
 
 // --- SVG Assets ---
 
@@ -196,9 +196,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-dirt/95 via-dirt/68 to-dirt/20 sm:to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/90"></div>
     </motion.div>
-    <div className="god-rays" aria-hidden="true" />
-    <div className="hero-fog" aria-hidden="true" />
-    <Embers className="z-[7]" />
+    <Embers className="z-[7]" count={22} />
     <div className="grain" aria-hidden="true" />
 
     {/* Top Right Compass */}
@@ -626,7 +624,6 @@ export default function App() {
     <div className="bg-dirt selection:bg-gold selection:text-dirt overflow-x-hidden">
       <Intro />
       <ScrollProgress />
-      <Torchlight />
       <SectionRail active={active} />
       <div className="fab-stack">
         <SoundToggle />

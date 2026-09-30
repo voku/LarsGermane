@@ -61,7 +61,7 @@ export const Embers = ({className = '', count = 70}: Readonly<{className?: strin
     const spawn = (initial: boolean) => ({
       x: Math.random() * w,
       y: initial ? Math.random() * h : h + 10,
-      r: 0.6 + Math.random() * 2.2,
+      r: 1 + Math.random() * 1.6,
       vy: 0.25 + Math.random() * 0.9,
       sway: Math.random() * Math.PI * 2,
       life: Math.random(),
@@ -99,14 +99,8 @@ export const Embers = ({className = '', count = 70}: Readonly<{className?: strin
         const fade = Math.min(1, p.y / (h * 0.5));
         const flicker = 0.6 + 0.4 * Math.sin(t / 160 + p.sway * 7);
         const a = Math.max(0, fade) * flicker;
-        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
-        g.addColorStop(0, `rgba(255,214,140,${a})`);
-        g.addColorStop(0.35, `rgba(240,140,50,${a * 0.5})`);
-        g.addColorStop(1, 'rgba(200,80,20,0)');
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.fillStyle = `rgba(255,200,120,${a * 0.85})`;
+        ctx.fillRect(p.x, p.y, p.r, p.r);
         if (p.y < -10) parts[i] = spawn(false);
       }
     };
@@ -121,46 +115,6 @@ export const Embers = ({className = '', count = 70}: Readonly<{className?: strin
   }, [count, reduce]);
 
   return <canvas ref={ref} aria-hidden="true" className={`pointer-events-none absolute inset-0 h-full w-full ${className}`} />;
-};
-
-/* ------------------------------------------------------------------ */
-/* Torchlight: the whole page is lit by a warm glow following the mouse */
-/* ------------------------------------------------------------------ */
-export const Torchlight = () => {
-  const coarse = useCoarsePointer();
-  const reduce = useReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (coarse || reduce) return;
-    const el = ref.current;
-    if (!el) return;
-    let raf = 0;
-    let tx = window.innerWidth / 2;
-    let ty = window.innerHeight / 3;
-    let x = tx;
-    let y = ty;
-    const onMove = (e: PointerEvent) => {
-      tx = e.clientX;
-      ty = e.clientY;
-    };
-    const loop = () => {
-      x += (tx - x) * 0.12;
-      y += (ty - y) * 0.12;
-      el.style.setProperty('--tx', `${x}px`);
-      el.style.setProperty('--ty', `${y}px`);
-      raf = requestAnimationFrame(loop);
-    };
-    window.addEventListener('pointermove', onMove, {passive: true});
-    raf = requestAnimationFrame(loop);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener('pointermove', onMove);
-    };
-  }, [coarse, reduce]);
-
-  if (coarse || reduce) return null;
-  return <div ref={ref} aria-hidden="true" className="torchlight" />;
 };
 
 /* ------------------------------------------------------------------ */
