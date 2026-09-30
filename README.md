@@ -8,6 +8,7 @@ Lars Germane is a production-ready Vite + React portfolio site with a handcrafte
 - Custom SVG ornaments and themed typography
 - Static Vite build output suitable for CDN or GitHub Pages hosting
 - Automated GitHub Pages deployment workflow
+- Immersive layer (`src/Experience.tsx`): intro curtain, canvas ember particles reacting to the cursor, torchlight cursor glow, hero parallax (scroll + mouse), scroll-linked timeline, 3D tilt cards, section rail, `Ctrl/⌘+K` command palette and an opt-in synthesized campfire soundscape (Web Audio). All motion respects `prefers-reduced-motion`.
 
 ## Tech Stack
 

@@ -1,3 +1,6 @@
+import {useRef} from 'react';
+import {motion, useScroll, useSpring} from 'motion/react';
+import {Reveal} from './Experience';
 import {BriefcaseBusiness, GraduationCap, Languages, MapPin, ShieldCheck} from 'lucide-react';
 
 type ExperienceEntry = Readonly<{
@@ -97,14 +100,22 @@ const SectionHeading = ({title, subtitle}: Readonly<{title: string; subtitle: st
   </div>
 );
 
-export const ExperienceSection = () => (
+export const ExperienceSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const {scrollYProgress} = useScroll({target: ref, offset: ['start 70%', 'end 60%']});
+  const scaleY = useSpring(scrollYProgress, {stiffness: 90, damping: 26});
+  return (
   <section id="experience" className="relative border-t border-parchment/10 bg-dirt-texture py-20 md:py-32">
     <div className="container-1200">
       <SectionHeading title="BERUFSWEG" subtitle="VOM LINUX-BETRIEB ZUR SOFTWARE-ARCHITEKTUR" />
 
-      <div className="mx-auto max-w-6xl space-y-8">
+      <div ref={ref} className="relative mx-auto max-w-6xl space-y-8">
+        <div className="timeline-line" aria-hidden="true">
+          <motion.div className="timeline-fill" style={{scaleY}} />
+        </div>
         {experience.map((entry) => (
-          <article key={`${entry.period}-${entry.company}`} className="grid items-start gap-4 md:grid-cols-[10rem_1fr] md:gap-8">
+          <Reveal key={`${entry.period}-${entry.company}`}>
+          <article className="grid items-start gap-4 md:grid-cols-[10rem_1fr] md:gap-8">
             <div className="relative z-10 flex items-center gap-3 md:block md:text-right">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold-dark/60 bg-wood-texture text-gold-dark shadow-lg md:ml-auto md:mb-3">
                 <BriefcaseBusiness size={20} aria-hidden="true" />
@@ -131,11 +142,13 @@ export const ExperienceSection = () => (
               </div>
             </div>
           </article>
+          </Reveal>
         ))}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const facts = [
   {label: 'Standort', value: 'Voerde (NRW)', icon: <MapPin size={24} aria-hidden="true" />},
