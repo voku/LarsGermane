@@ -218,7 +218,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: sepia(0.5) contrast(1.2) brightness(0.9);
+    filter: sepia(0.15) contrast(1.05);
     position: relative;
     z-index: 10;
     display: block;
@@ -241,6 +241,8 @@ html {
   scroll-behavior: smooth;
 }
 
+html { font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'dlig' 0, 'calt' 0; }
+
 body {
   background-color: var(--color-dirt);
   color: var(--color-parchment);
@@ -248,7 +250,7 @@ body {
 }
 
 .hero-image {
-  object-position: 68% center;
+  object-position: 100% center;
 }
 
 @media (min-width: 640px) {
@@ -264,14 +266,6 @@ body {
 }
 
 /* ---------- Experience layer ---------- */
-.torchlight {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  pointer-events: none;
-  mix-blend-mode: soft-light;
-  background: radial-gradient(420px circle at var(--tx, 50%) var(--ty, 30%), rgba(255, 190, 100, 0.55), rgba(255, 140, 50, 0.12) 45%, transparent 70%);
-}
 
 .scroll-progress {
   position: fixed;
@@ -367,11 +361,8 @@ body {
 .tilt-wrap:hover .tilt-glare { opacity: 0.55; }
 
 /* Hero atmosphere */
-.hero-fog { position: absolute; inset: auto -10% 0; height: 45%; z-index: 5; pointer-events: none; background: radial-gradient(ellipse at 30% 100%, rgba(255, 210, 150, 0.22), transparent 60%), radial-gradient(ellipse at 80% 100%, rgba(255, 170, 90, 0.18), transparent 55%); animation: drift 14s ease-in-out infinite alternate; }
-.god-rays { position: absolute; inset: 0; z-index: 4; pointer-events: none; mix-blend-mode: screen; opacity: 0.35; background: conic-gradient(from 200deg at 85% 18%, transparent 0 8%, rgba(255, 220, 150, 0.5) 10%, transparent 13% 18%, rgba(255, 220, 150, 0.4) 20%, transparent 24% 32%, rgba(255, 220, 150, 0.35) 34%, transparent 38%); animation: rays 9s ease-in-out infinite alternate; }
+/* grain */
 .grain { position: absolute; inset: 0; z-index: 6; pointer-events: none; opacity: 0.12; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-@keyframes drift { to { transform: translateX(4%) translateY(-3%); } }
-@keyframes rays { to { opacity: 0.6; transform: rotate(2deg); } }
 
 /* Scroll-linked timeline */
 .timeline-line { position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; background: rgba(216, 195, 165, 0.12); }
@@ -380,6 +371,12 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-fog, .god-rays { animation: none; }
+  
   .tilt { transition: none; transform: none; }
+}
+
+@media (max-width: 640px) {
+  .fab-stack { right: 10px; bottom: 10px; gap: 8px; }
+  .fab { height: 38px; min-width: 38px; padding: 0 9px; opacity: 0.9; }
+  .fab svg { width: 16px; height: 16px; }
 }
