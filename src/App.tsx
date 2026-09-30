@@ -1,7 +1,8 @@
 import { Fragment, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { Github, Linkedin, Globe, Shield, PaintBucket, Menu, X } from 'lucide-react';
 import {EducationSection, ExperienceSection} from './CvSections';
+import {CommandPalette, Embers, Intro, Reveal, ScrollProgress, SectionRail, SoundToggle, Tilt, Torchlight, goTo, useActiveSection} from './Experience';
 
 // --- SVG Assets ---
 
@@ -97,10 +98,6 @@ const CornerOrnament = ({ className = "" }) => (
 // --- Components ---
 
 const getAssetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
-const getProjectCardClassName = (featuredOnTablet: boolean) =>
-  ['card-parchment', featuredOnTablet ? 'md:col-span-2 xl:col-span-1' : '']
-    .filter(Boolean)
-    .join(' ');
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -164,12 +161,29 @@ const NavBar = () => {
   );
 };
 
-const Hero = () => (
-  <section className="relative min-h-[620px] sm:min-h-[720px] lg:min-h-[820px] flex items-center overflow-hidden">
+const Hero = () => {
+  const reduce = useReducedMotion();
+  const {scrollY} = useScroll();
+  const bgY = useTransform(scrollY, [0, 900], reduce ? [0, 0] : [0, 180]);
+  const bgScale = useTransform(scrollY, [0, 900], reduce ? [1, 1] : [1.06, 1.22]);
+  const textY = useTransform(scrollY, [0, 600], reduce ? [0, 0] : [0, -70]);
+  const textOpacity = useTransform(scrollY, [0, 500], [1, 0.15]);
+  const [mouse, setMouse] = useState({x: 0, y: 0});
+
+  return (
+  <section
+    className="relative min-h-[620px] sm:min-h-[720px] lg:min-h-[820px] flex items-center overflow-hidden"
+    onPointerMove={(e) => {
+      if (reduce) return;
+      setMouse({x: e.clientX / window.innerWidth - 0.5, y: e.clientY / window.innerHeight - 0.5});
+    }}
+  >
     {/* Background - header image */}
-    <div className="absolute inset-0 z-0">
+    <motion.div className="absolute inset-0 z-0" style={{y: bgY, scale: bgScale}}>
+      <motion.div className="h-full w-full" animate={{x: mouse.x * -22, y: mouse.y * -14}} transition={{type: 'spring', stiffness: 40, damping: 18}}>
       <picture className="block h-full w-full">
-        <source type="image/webp" media="(min-width: 1280px)" srcSet={getAssetUrl('images/hero/header-desktop.webp')} />
+        <source type="image/webp" media="(min-width: 1536px)" srcSet={getAssetUrl('images/hero/header-xl.webp')} />
+        <source type="image/webp" media="(min-width: 1024px)" srcSet={getAssetUrl('images/hero/header-desktop.webp')} />
         <source type="image/webp" media="(min-width: 640px)" srcSet={getAssetUrl('images/hero/header-tablet.webp')} />
         <img
           src={getAssetUrl('images/hero/header-mobile.webp')}
@@ -178,9 +192,14 @@ const Hero = () => (
           fetchPriority="high"
         />
       </picture>
+      </motion.div>
       <div className="absolute inset-0 bg-gradient-to-r from-dirt/95 via-dirt/68 to-dirt/20 sm:to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dirt/90"></div>
-    </div>
+    </motion.div>
+    <div className="god-rays" aria-hidden="true" />
+    <div className="hero-fog" aria-hidden="true" />
+    <Embers className="z-[7]" />
+    <div className="grain" aria-hidden="true" />
 
     {/* Top Right Compass */}
     <div className="hidden lg:block absolute top-10 right-6 xl:right-12 z-20 text-parchment opacity-70">
@@ -189,6 +208,7 @@ const Hero = () => (
 
     <div className="relative z-10 container-1200 w-full pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
       <motion.div
+        style={{y: textY, opacity: textOpacity}}
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
@@ -226,8 +246,13 @@ const Hero = () => (
         </a>
       </motion.div>
     </div>
+    <a href="#about" onClick={(e) => { e.preventDefault(); goTo('about'); }} className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 font-cinzel text-[10px] tracking-[0.4em] text-parchment/70 sm:flex" aria-label="Nach unten scrollen">
+      SCROLLEN
+      <motion.span animate={{y: [0, 8, 0]}} transition={{repeat: Infinity, duration: 1.8}} className="block h-8 w-px bg-gradient-to-b from-gold to-transparent" />
+    </a>
   </section>
-);
+  );
+};
 
 const About = () => (
   <section id="about" className="relative z-20">
@@ -334,8 +359,10 @@ const Projects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {projects.map((p) => (
-            <div key={p.id} className={getProjectCardClassName(p.featuredOnTablet)}>
+          {projects.map((p, i) => (
+            <Reveal key={p.id} delay={i * 0.12} className={p.featuredOnTablet ? 'md:col-span-2 xl:col-span-1' : ''}>
+            <Tilt>
+            <div className="card-parchment">
               {/* Rivets */}
               <Rivet className="absolute top-3 left-3 w-4 h-4 z-20 opacity-80" />
               <Rivet className="absolute top-3 right-3 w-4 h-4 z-20 opacity-80" />
@@ -354,6 +381,8 @@ const Projects = () => {
                 <span className="arrow">&gt;</span>
               </a>
             </div>
+            </Tilt>
+            </Reveal>
           ))}
         </div>
 
@@ -592,8 +621,17 @@ const Testimonial = () => (
 );
 
 export default function App() {
+  const active = useActiveSection();
   return (
     <div className="bg-dirt selection:bg-gold selection:text-dirt overflow-x-hidden">
+      <Intro />
+      <ScrollProgress />
+      <Torchlight />
+      <SectionRail active={active} />
+      <div className="fab-stack">
+        <SoundToggle />
+        <CommandPalette />
+      </div>
       <TornEdgeFilter />
       <NavBar />
       <Hero />
@@ -601,9 +639,9 @@ export default function App() {
       <ExperienceSection />
       <Projects />
       <RuneDividerSection />
-      <Skills />
+      <Reveal><Skills /></Reveal>
       <EducationSection />
-      <Testimonial />
+      <Reveal><Testimonial /></Reveal>
       <Contact />
     </div>
   );
